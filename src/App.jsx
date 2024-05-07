@@ -6,6 +6,7 @@ import {
   RouterProvider
 } from 'react-router-dom'
 import Loader from './components/Loader'
+const Layout = lazy(()=> import('./components/Layout'))
 
 
 
@@ -13,7 +14,7 @@ function App() {
 
   const routes = createBrowserRouter(createRoutesFromElements(
     <Route>
-      <Route path="/" element={<Loader />}/>
+      <Route path="/" element={<Layout />}/>
     </Route>
   ))
 

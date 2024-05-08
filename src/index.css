@@ -33,12 +33,30 @@
     animation: spin89345 1s linear infinite;
 }
 
-@keyframes spin89345 {
-    0% {
-    transform: rotate(0deg);
-    }
-
-    100% {
-    transform: rotate(360deg);
-    }
+.mainpglight {
+    box-sizing:border-box; 
+    margin:0;  
+    width:100%; 
+    background-position: center;
+    background-size:100px 100px;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 99px, #ccc 99px, #ccc 100px), 
+    repeating-linear-gradient(-90deg, transparent, transparent 99px, #ccc 99px, #ccc 100px);
 }
+
+.mainpgdark {
+    animation: fadeIn 1s;    
+    box-sizing:border-box; 
+    margin:0;  
+    width:100%;
+    background-position: center;
+    background-size:100px 100px;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 99px, #575656 99px, #575656 100px), 
+    repeating-linear-gradient(-90deg, rgb(0, 0, 0), rgb(0, 0, 0) 99px, #575656  99px, #575656  100px);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+

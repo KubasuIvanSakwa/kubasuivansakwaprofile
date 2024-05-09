@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import { Outlet } from "react-router-dom"
 
 function Layout() {
-    const [tog, setTog] = useState('dark theme')
+    const [tog, setTog] = useState('light theme')
     const theme = useRef(null)
     const themeBtn = useRef(null)
     
@@ -18,23 +18,22 @@ function Layout() {
 
     function handleTog() {
         setTog((prevTog) => (
-            prevTog === 'dark theme' ?  'light theme' : 'dark theme'
+            prevTog === 'light theme' ?  'dark theme' : 'light theme'
         ))
         handleTheme()
     }
 
 
     return (
-        <section className="mainpglight ease-in w-full flex justify-center h-[100vh] overflow-hidden" ref={theme}>
+        <section className="mainpgdark ease-in w-full flex justify-center h-[100vh] overflow-hidden" ref={theme}>
             <section className="backdrop-blur-sm  shadow-xl w-[65vw] h-[100vh] overflow-y-scroll">
                 <section className='h-[200vh] w-full'>
-                    <button
-                        onClick={handleTog}
-                        className=" border border-white bg-black text-white m-4 p-2 rounded-full w-fit"
-                        ref={themeBtn}
-                    >
-                        {tog}
-                    </button>
+                    <div className="toggle-switch">
+                        <label className="switch-label">
+                            <input type="checkbox" className="checkbox" onClick={handleTog} ref={themeBtn}/>
+                                <span className="slider"></span>
+                        </label>
+                    </div> 
                 </section>
             </section>
             <Outlet />

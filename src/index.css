@@ -90,10 +90,10 @@
 }
 
 .checkbox:checked ~ .slider {
-    background-color: var(--light);
+    background-color: var(--dark);
 }
 
-.slider::before {
+.slider-1 {
     content: "";
     position: absolute;
     top: 2px;
@@ -108,14 +108,16 @@
     transition: 0.3s;
 }
 
-.checkbox:checked ~ .slider::before {
-    -webkit-transform: translateX(50px);
-    -ms-transform: translateX(50px);
-    transform: translateX(32px);
-    background-color: var(--dark);
+.checkbox:checked ~ .slider-2 {
+    -webkit-transform: translateX(36px);
+    width: 1.8rem;
+    -ms-transform: translateX(36px);
+    transform: translateX(36px);
+    background-color: var(--light);
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
 
 
 .button {

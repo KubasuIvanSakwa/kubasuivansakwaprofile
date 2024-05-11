@@ -1,11 +1,20 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Outlet } from "react-router-dom"
 
 function Layout() {
     const [tog, setTog] = useState('light theme')
     const theme = useRef(null)
     const themeBtn = useRef(null)
-    
+
+    useEffect(() => {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) { 
+            const newColorScheme = e.matches ? 'dark' : 'light'
+            newColorScheme === 'dark' ? setTog('dark theme') : setTog('light theme')
+            console.log(newColorScheme)
+            console.log(tog)
+        })
+    })
+
     function handleTheme() {
         if(tog === 'dark theme') {
             theme.current.classList.remove('mainpglight')
@@ -25,7 +34,7 @@ function Layout() {
 
 
     return (
-        <section className="mainpgdark ease-in w-full flex justify-center h-[100vh] overflow-hidden" ref={theme}>
+        <section className={`${tog === 'dark theme' ? 'mainpgdark' : 'mainpglight'} ease-in w-full flex justify-center h-[100vh] overflow-hidden`} ref={theme}>
             <section className="backdrop-blur-sm shadow-xl w-[65vw] h-fit overflow-y-scroll p-2">
                 <nav className='w-full rounded-full h-[3rem] pl-2 flex items-center relative border border-slate-500/20 justify-end relative'>
                     <div className="flex justify-between items-center w-full h-fit">
@@ -39,7 +48,7 @@ function Layout() {
                         <div className="toggle-switch mr-2 opacity-70 relative right-[-0.3rem]">
                             <label className="switch-label">
                                 <input type="checkbox" className="checkbox" onClick={handleTog} ref={themeBtn}/>
-                                    <span className="slider"></span>
+                                    <span className={`${tog === 'dark theme' ? 'slider-1' : 'slider-2'} slider`}></span>
                             </label>
                         </div> 
                     </div>

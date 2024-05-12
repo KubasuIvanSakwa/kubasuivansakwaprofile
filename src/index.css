@@ -54,68 +54,6 @@
     repeating-linear-gradient(-90deg, rgb(0, 0, 0), rgb(0, 0, 0) 99px, #575656  99px, #575656  100px);
 }
 
-
-.button {
-    border-radius: 1.2rem;
-    position: relative;
-    opacity: .7;
-    width: 141px;
-    height: 35px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.233);
-    background-color: #4d504f;
-    overflow: hidden;
-}
-
-.button, .button__icon, .button__text {
-    transition: all 0.3s;
-}
-
-.button .button__text {
-    transform: translateX(22px);
-    color: #fff;
-    font-weight: 600;
-}
-
-.button .button__icon {
-    position: absolute;
-    transform: translateX(100px);
-    height: 100%;
-    width: 39px;
-    background-color: #2e302f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.button .svg {
-    width: 20px;
-    fill: #fff;
-}
-
-.button:hover {
-    background: #2c2e2d;
-}
-
-.button:hover .button__text {
-    color: transparent;
-}
-
-.button:hover .button__icon {
-    width: 140px;
-    transform: translateX(0);
-}
-
-.button:active .button__icon {
-    background-color: #4d504f;
-}
-
-.button:active {
-    border: 1px solid #4d504f;
-}
-
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }

@@ -8,7 +8,7 @@
 
   /* Handle */
 ::-webkit-scrollbar-thumb {
-    background:#bcbabe;
+    background:#7d7c7e;
     border-radius: 10px;
 }
 
@@ -224,4 +224,28 @@ a{
     transform: translateY(-1rem);
     opacity: 0;
     }
+}
+
+.card-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(59, 199, 4, 0.24);
+    opacity: .7;
+    z-index: -1;
+}
+
+.card-3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(4, 186, 199, 0.24);
+    opacity: .7;
+    z-index: -1;
 }

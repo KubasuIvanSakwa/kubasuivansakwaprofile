@@ -32,7 +32,7 @@ function Layout() {
 
     return (
         <section className={`${tog === 'dark theme' ? 'mainpgdark' : 'mainpglight'} ease-in w-full flex justify-center h-[100vh] overflow-hidden`} ref={theme}>
-            <section className="backdrop-blur-sm shadow-xl w-[65vw] h-fit overflow-y-scroll p-2">
+            <section className="backdrop-blur-sm shadow-xl w-[65vw] min-h-fit overflow-y-scroll p-2">
                 <nav className='w-full rounded-full h-[3rem] pl-2 flex items-center border border-slate-500/20 justify-end'>
                     <div className="flex justify-between items-center w-full h-fit">
                         <div className="flex items-center h-fit justify-between w-full relative left-[-0.7rem]">

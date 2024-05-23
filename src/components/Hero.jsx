@@ -2,7 +2,7 @@ import { Link, useOutletContext } from "react-router-dom"
 
 function Hero() {
     const [ tog ] = useOutletContext()
-
+    
     return (
         <section className={`${tog === 'd' ? 'text-white' : 'text-black'} mt-10`}>
             <section className="flex justify-end">
@@ -22,30 +22,30 @@ function Hero() {
                 </section>
             </section>
             <section className="flex flex-col justify-center mt-10 items-center w-full ">
-                <hr className="border border-white/20 w-[10rem]"/>
+                <hr className={`${tog === 'd' ? 'border-white/20 bg-[#080808]/90' : 'border-black/20 bg-[#afaeae]'} border w-[10rem]`}/>
             </section>
             <section className="flex mt-10 justify-center relative">
-                <div className="border border-white/20 w-[15rem] h-[18rem] ml-2 rounded-[20px] relative z-10 left-[2rem] bg-[#A9A9A9]/10 top-4 flex justify-center items-center">
+                <div className={`${tog === 'd' ? 'border-white/20 bg-[#080808]/90' : 'border-black/20 bg-[#afaeae]'} card-1 border-t border-l border-b w-[15rem] h-[18rem] ml-2 rounded-[20px] relative z-10 left-[2rem] top-4 flex justify-center items-center`}>
                     <div className="w-[20rem] mr-[2rem] p-3 h-[15rem] flex flex-col justify-center items-center">
                         <h1>Previous Company</h1>
                         <h1>MutableTech</h1>
                     </div>
                 </div>
-                <div className="border border-white/20 w-[15rem] h-[21rem] bottom-3 ml-2 rounded-[20px] relative z-20 bg-[#080808]/90 backdrop-blur-3xl overflow-hidden card-2" style={{boxShadow: 'rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px'}}>
+                <div className={`${tog === 'd' ? 'border-white/20 bg-[#080808]/90' : 'border-black/20 bg-[#afaeae]'} border w-[15rem] h-[21rem] bottom-3 ml-2 rounded-[20px] relative z-20 backdrop-blur-3xl overflow-hidden card-2`}style={{boxShadow: 'rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px'}}>
                     <div className="w-[full] p-3 h-[20rem] mt-2 flex flex-col justify-center items-center">
                         <h1>Currently At</h1>
                         <h1>Rawlinz Designs</h1>
                     </div>
                 </div>
-                <div className="card-3 overflow-hidden border w-[15rem] border-white/20 h-[18rem] ml-2 rounded-[20px] relative z-10 bg-[#A9A9A9]/10 top-4 right-[2rem] flex justify-center items-center">
+                <div className={`${tog === 'd' ? 'border-white/20 bg-[#080808]/90' : 'border-black/20 bg-[#afaeae]'} card-3 overflow-hidden border-r border-t border-b  w-[15rem] h-[18rem] ml-2 rounded-[20px] relative z-10 top-4 right-[2rem] flex justify-center items-center`}>
                     <div className="w-[20rem] ml-[2rem] p-3 h-[15rem] flex flex-col justify-center items-center">
                         <h1>Previous Company</h1>
                         <h1>MutableTech</h1>
                     </div>
                 </div>
             </section>
-            <section className="flex flex-col justify-center mt-10 items-center w-full ">
-                <hr className="border border-white/20 w-[10rem]"/>
+            <section className="flex flex-col justify-center mt-4 items-center w-full ">
+                <hr className={`${tog === 'd' ? 'border-white/20 bg-[#080808]/90' : 'border-black/20 bg-[#afaeae]'} border w-[10rem]`}/>
             </section>
         </section>
     )

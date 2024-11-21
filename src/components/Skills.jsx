@@ -6,15 +6,15 @@ function Skills() {
     const [ tog ] = useOutletContext()
 
     const skills = [
-        {id: 0, name: 'JavaScript', logo: `bg-[url('src/assets/logos/javascript.svg')]`, description:'Language with many Frameworks' },
-        {id: 1, name: 'TypeScript', logo: `bg-[url('src/assets/logos/typescript.svg')]`, description:'JavaScript with types' },
-        {id: 2, name: 'React', logo: `bg-[url('src/assets/logos/react.svg')]`, description:'JavaScript Framework' },
-        {id: 3, name: 'Git', logo: `bg-[url('src/assets/logos/git.svg')]`, description:'Version Control Tool' },
-        {id: 4, name: 'Flutter', logo: `bg-[url('src/assets/logos/flutter.svg')]`, description:'Dart Framework' },
-        {id: 5, name: 'Tailwind', logo: `bg-[url('src/assets/logos/tailwind.svg')]`, description:'CSS Framework' },
-        {id: 6, name: 'Firebase', logo: `bg-[url('src/assets/logos/firebase.svg')]`, description:'Cloud Non SQL Database' },
-        {id: 7, name: 'Amazon Cloud', logo: `bg-[url('src/assets/logos/amazon.svg')]`, description:'Cloud Tool' },
-        {id: 8, name: 'Figma', logo: `bg-[url('src/assets/logos/figma.svg')]`, description:'Design Tool' }
+        {id: 0, name: 'JavaScript', logo: `bg-[url('/src/assets/logos/javascript.svg')]`, description:'Language with many Frameworks' },
+        {id: 1, name: 'TypeScript', logo: `bg-[url('/src/assets/logos/typescript.svg')]`, description:'JavaScript with types' },
+        {id: 2, name: 'React', logo: `bg-[url('/src/assets/logos/react.svg')]`, description:'JavaScript Framework' },
+        {id: 3, name: 'Git', logo: `bg-[url('/src/assets/logos/git.svg')]`, description:'Version Control Tool' },
+        {id: 4, name: 'Flutter', logo: `bg-[url('/src/assets/logos/flutter.svg')]`, description:'Dart Framework' },
+        {id: 5, name: 'Tailwind', logo: `bg-[url('/src/assets/logos/tailwind.svg')]`, description:'CSS Framework' },
+        {id: 6, name: 'Firebase', logo: `bg-[url('/src/assets/logos/firebase.svg')]`, description:'Cloud Non SQL Database' },
+        {id: 7, name: 'Amazon Cloud', logo: `bg-[url('/src/assets/logos/amazon.svg')]`, description:'Cloud Tool' },
+        {id: 8, name: 'Figma', logo: `bg-[url('/src/assets/logos/figma.svg')]`, description:'Design Tool' }
     ]
 
     return (

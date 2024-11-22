@@ -1,8 +1,10 @@
-# React + Vite
+<h1>Progress</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1>hero Section</h1>
+<img src="https://github.com/KubasuIvanSakwa/kubasuivansakwaprofile/blob/master/Screenshot%20from%202024-11-21%2017-08-35.png" />
 
-Currently, two official plugins are available:
+<h1>Skills</h1>
+<img src="https://github.com/KubasuIvanSakwa/kubasuivansakwaprofile/blob/master/Screenshot%20from%202024-11-21%2017-08-59.png" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+

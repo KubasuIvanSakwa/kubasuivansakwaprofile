@@ -5,7 +5,9 @@ import {
   Route,
   RouterProvider
 } from 'react-router-dom'
+import { Analytics } from "@vercel/analytics/react"
 import Loader from './components/Loader'
+import Projects from './components/Projects'
 const Layout = lazy(()=> import('./components/Layout'))
 const WorkExperience = lazy(()=> import('./components/WorkExperience'))
 const Skills = lazy(()=> import('./components/Skills'))
@@ -25,10 +27,11 @@ function App() {
               <Hero />
               <WorkExperience />
               <Skills />
+              <Analytics />
             </>
           }
-        >
-        </Route>
+        />
+          <Route path='projects' element={<Projects />} />
       </Route>
     </Route>
   ))

@@ -36,8 +36,8 @@ function Layout() {
     
     return (
         <section className={`${tog === 'dark theme' ? 'mainpgdark' : 'mainpglight'} ease-in w-full flex justify-center h-[100vh] overflow-hidden`} ref={theme}>
-            <Leftnav />
-            <Rightnav />
+            <Leftnav tog={tog}/>
+            <Rightnav tog={tog}/>
 
             <section className="hidden w-full h-[200vh] absolute z-50 top-0 backdrop-blur-md bg-white/30 ">
                 <section className="bg-transparent flex w-full h-[100vh] justify-center overflow-y-scroll">
@@ -57,7 +57,7 @@ function Layout() {
                         </div>
                 </section>
             </section>
-            <section className="backdrop-blur-sm lg:shadow-xl lg:w-[65vw] w-full min-h-fit overflow-y-scroll p-1 pt-3 mb-1">
+            <section className="backdrop-blur-sm lg:shadow-xl lg:w-[65vw] w-full min-h-fit overflow-y-scroll p-1 pt-3 mb-1 overflow-x-hidden">
                 <svg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'
                     className="lg:absolute hidden lg:block md:block md:absolute top-[-3rem] opacity-[0.1] h-[190vh]"
                 >

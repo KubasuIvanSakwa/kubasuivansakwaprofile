@@ -61,7 +61,7 @@ function Nav({ tog, fn, themeref }) {
                     </div>
                     <div className="flex justify-between w-[11rem]">
                         <input title="change-theme" type="checkbox" onClick={fn} className="l cursor-pointer" ref={themeref}></input>
-                        <a href="/src/assets/KubasuIvanSakwa.pdf"
+                        <a href="../../src/assets/KubasuIvanSakwa.pdf"
                             className={`border ${tog === 'dark theme' ? 'border-white/50 text-white/50' : 'border-black/50 text-black/50'} relative resume w-[6rem] rounded-r-full right-[-0.4rem] h-[2.4rem] flex items-center justify-center p-1 rounded`}
                             download
                         >

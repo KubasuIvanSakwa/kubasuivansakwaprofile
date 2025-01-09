@@ -1,13 +1,20 @@
+import { useState } from "react"
 import { useOutletContext } from "react-router-dom"
 
 function Projects() {
     const [tog] = useOutletContext()
+    const [bg, setBg] = useState(true)
+    const [bg2, setBg2] = useState(false)
+    const [user, setUser] = useState('kubasuIvanSakwa')
+    const [userData, setUserData] = useState(undefined)
+    const [repoData, setRepoData] = useState([])
+    const [error, setError] = useState(undefined)
 
     return (
-        <section className="text-white pt-[5rem] w-full">
+        <section className="text-white pt-[5rem] w-full relative overflow-y-auto">
             <h1 className={`text-xl p-2 ${tog === 'l' ? 'text-black/70' : 'text-white/70'} font-extrabold underline decoration-wavy mb-3`}>Projects</h1>
             <div className="w-full flex items-center justify-center">
-                <h1 className={`text-xl p-2 ${tog === 'l' ? 'text-black/70' : 'text-white/70'}  font-extrabold mb-3`}>Wakatime Chart</h1>
+                <h1 className={`text-xl p-2 ${tog === 'l' ? 'text-black/70' : 'text-white/70'}  font-extrabold mb-3`}>Productivity Chart</h1>
             </div>
             <div className="h-fit bg-blue-40 flex flex-col items-center p-2">
                 {
@@ -34,7 +41,52 @@ function Projects() {
                     </figure>
                 }
             </div>
-        </section >
+
+            <div className="w-full flex justify-center p-2 relative z-20 mt-4">
+                <div className="bg-gray-800/50  rounded-full flex justify-center items-center gap-2 p-[0.2rem]">
+                    <button
+                        className={`${bg ? 'bg-white/80 text-black/70' : 'bg-tranparent hover:bg-white/60 text-white/70 hover:text-black/70'} rounded-full p-1 pl-3 pr-3`}
+                        onClick={() => {
+                            setBg(true)
+                            setBg2(false)
+                        }}
+                    >Completed Projects</button>
+                    <button
+                        className={`${bg2 ? 'bg-white/80 text-black/70' : 'bg-transparent hover:bg-white/60 text-white/70 hover:text-black/70'}  rounded-full p-1 pl-3 pr-3`}
+                        onClick={() => {
+                            updateUserData()
+                            setBg(false)
+                            setBg2(true)
+                        }}
+                    >Upcoming Projects</button>
+                </div>
+            </div>
+
+            <div className="relative border w-full h-fit mt-4 p-3 flex justify-center">
+                <div className="flex justify-between p-1 flex-col w-[20rem] h-[24rem] rounded-2xl bg-red-500 ">
+                    {/* top items */}
+                    <div className="w-full flex flex-col items-end p-2 rounded-t-2xl">
+                        <p>Months</p>
+
+                        {/* drop down for links */}
+                        <p>links</p>
+                    </div>
+
+                    {/* bottom items */}
+                    <div>
+                        {/* project name */}
+                        <h4>VerityCore Labs</h4>
+
+                        {/* project description */}
+                        <div>
+                            <p>Total Volume</p>
+                            <p>Progress bar %6.5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
     )
 }
 

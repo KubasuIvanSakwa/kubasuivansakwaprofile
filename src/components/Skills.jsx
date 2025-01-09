@@ -19,7 +19,7 @@ function Skills() {
 
     return (
         <section className="h-[20vh] p-2 mb-1 w-full">
-            <h1 className={`lg:text-xl p-2 lg:ml-10 mt-7 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold underline decoration-wavy mb-3`}>Skills</h1>
+            <h1 className={`lg:text-xl p-2 lg:ml-10 mt-7 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold   mb-3`}>Skills</h1>
             <section
                 className="h-[100px] lg:pl-[5rem] p-2 lg:ml-[2rem] flex gap-2 flex-wrap"
             >

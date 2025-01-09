@@ -12,7 +12,7 @@ function Projects() {
 
     return (
         <section className="text-white pt-[5rem] w-full relative overflow-y-auto">
-            <h1 className={`text-xl p-2 ${tog === 'l' ? 'text-black/70' : 'text-white/70'} font-extrabold underline decoration-wavy mb-3`}>Projects</h1>
+            <h1 className={`text-xl p-2 ${tog === 'l' ? 'text-black/70' : 'text-white/70'} font-extrabold   mb-3`}>Projects</h1>
             <div className="w-full flex items-center justify-center">
                 <h1 className={`text-xl p-2 ${tog === 'l' ? 'text-black/70' : 'text-white/70'}  font-extrabold mb-3`}>Productivity Chart</h1>
             </div>

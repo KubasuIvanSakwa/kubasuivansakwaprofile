@@ -29,7 +29,7 @@ function WorkExperience() {
         <section
             className="text-white w-full min-h-fit mt-10 "
         >
-            <h1 className={`lg:text-xl p-2 lg:ml-10 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold underline decoration-wavy mb-3`}>work experience</h1>
+            <h1 className={`lg:text-xl p-2 lg:ml-10 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold  mb-3`}>work experience</h1>
 
             <section className="flex flex-col gap-2 items-center">
                 {Experience.map(work => (

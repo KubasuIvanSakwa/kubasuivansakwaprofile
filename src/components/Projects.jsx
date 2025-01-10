@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useOutletContext } from "react-router-dom"
+import { Octokit } from "octokit"
 
 function Projects() {
     const [tog] = useOutletContext()
@@ -9,6 +10,21 @@ function Projects() {
     const [userData, setUserData] = useState(undefined)
     const [repoData, setRepoData] = useState([])
     const [error, setError] = useState(undefined)
+
+    const octokit = new Octokit();
+
+    const updateUserData = async () => {
+        try {
+            const username = user.trim();
+            const response = await octokit.request(`GET /users/${username}`);
+            setUserData(response.data);
+            setError(undefined);
+        }
+        catch (ex) {
+            if (ex instanceof Error) setError(ex);
+            else console.error(ex);
+        }
+    }
 
     return (
         <section className="text-white pt-[5rem] w-full relative overflow-y-auto">

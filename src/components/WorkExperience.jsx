@@ -12,7 +12,9 @@ function WorkExperience() {
             duration: 'August 2023 - February - 2024', 
             position: 'React Front-end Web Developer', 
             background: 'bg-blue-900/20',
-            backgroundLight: 'bg-blue-900/70'
+            backgroundLight: 'bg-blue-900/70',
+            hoverDark: 'hover:bg-blue-900/50',
+            hoverLight: 'hover:bg-blue-900/80',
         },
 
         {
@@ -21,7 +23,9 @@ function WorkExperience() {
             duration: 'March 2024 - July - 2024', 
             position: 'React Front-end Web Developer', 
             background: 'bg-green-900/20',
-            backgroundLight: 'bg-green-900/70'
+            backgroundLight: 'bg-green-900/70',
+            hoverDark: 'hover:bg-green-900/50',
+            hoverLight: 'hover:bg-green-900/80',
         }
     ]
 
@@ -33,7 +37,7 @@ function WorkExperience() {
 
             <section className="flex flex-col gap-2 items-center">
                 {Experience.map(work => (
-                    <Workcard key={work.id} tog={tog} background={work.background} duration={work.duration} company={work.company} position={work.position} bgLight={work.backgroundLight}/>
+                    <Workcard key={work.id} tog={tog} background={work.background} duration={work.duration} company={work.company} position={work.position} bgLight={work.backgroundLight} hoverdark={work.hoverDark} hoverlight={work.hoverLight}/>
                 ))}
             </section>
         </section>

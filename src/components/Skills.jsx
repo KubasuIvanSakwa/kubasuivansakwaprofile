@@ -37,9 +37,10 @@ function Skills() {
             <div className={`lg:hidden flex justify-center items-center ${height === '60rem' ? 'bg-transparent' : 'bg-gradient-to-t from-black via-black to-transparent'} w-full h-[12rem] absolute bottom-[-3rem]`}>
                 <button 
                     onClick={() => {
-                        setHeight('60rem')
-                        setBtn('less')
-                        if(btn === 'less') {
+                        if (btn === 'more') {
+                            setHeight('60rem')
+                            setBtn('less')
+                        } else {
                             setHeight('28rem')
                             setBtn('more')
                         }

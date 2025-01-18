@@ -20,7 +20,7 @@ function Skills() {
         {id: 8, name: 'Figma', logo: `bg-[url('/src/assets/logos/figma.svg')]`, description:'Design Tool' }
     ]
 
-    const isMobileOrTablet = window.innerWidth <= 1024; 
+    const isMobileOrTablet = window.innerWidth <= 900; 
 
     return (
 

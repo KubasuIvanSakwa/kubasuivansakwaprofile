@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import Nav from "./Nav"
 import close from '../assets/close.svg'
 import Leftnav from "./Leftnav"
@@ -9,6 +9,8 @@ function Layout() {
     const themeRef = useRef(null)
     const [tog, setTog] = useState('dark theme')
     const theme = useRef(null)
+    const location = useLocation()
+    console.log(location.pathname)
 
     function handleChange(){
         if(themeRef.current.checked) {
@@ -57,9 +59,10 @@ function Layout() {
                         </div>
                 </section>
             </section>
-            <section className="backdrop-blur-sm lg:shadow-xl lg:w-[65vw] w-full min-h-fit overflow-y-scroll p-1 pt-3 mb-1 overflow-x-hidden">
+
+            <section className="backdrop-blur-sm lg:shadow-xl lg:w-[65vw] w-full h-[100vh] overflow-y-scroll p-1 pt-3 mb-1 overflow-x-hidden">
                 <svg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'
-                    className="lg:absolute hidden lg:block md:block md:absolute top-[-3rem] opacity-[0.1] h-[190vh]"
+                    className={`lg:absolute  lg:block md:absolute top-[-3rem] hidden lg:opacity-[0.1] ${location.pathname === '/' ? 'h-[190vh]' : 'h-[190vh]'} `}
                 >
                     <filter id='noiseFilter'>
                         <feTurbulence 

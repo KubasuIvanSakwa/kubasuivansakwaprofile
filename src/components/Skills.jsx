@@ -1,9 +1,12 @@
 import { useOutletContext } from "react-router-dom"
 import SkillCards from "./SkillCards"
+import { useState } from "react"
 
 function Skills() {
 
     const [ tog ] = useOutletContext()
+    const [height, setHeight] = useState('28rem')
+    const [btn, setBtn] = useState('more')
 
     const skills = [
         {id: 0, name: 'JavaScript', logo: `bg-[url('/src/assets/logos/javascript.svg')]`, description:'Language with many Frameworks' },
@@ -18,8 +21,8 @@ function Skills() {
     ]
 
     return (
-        <section className="h-[20vh] p-2 mb-1 w-full">
-            <h1 className={`lg:text-xl p-2 lg:ml-10 mt-7 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold   mb-3`}>Skills</h1>
+        <section className={`lg:h-[90vh] h-[${height}] p-2 mb-1 w-full overflow-hidden relative`}>
+            <h1 className={`lg:text-xl p-2 lg:ml-10 mt-7 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold mb-3`}>Skills</h1>
             <section
                 className="h-[100px] lg:pl-[5rem] p-2 lg:ml-[2rem] flex gap-2 flex-wrap"
             >
@@ -31,6 +34,19 @@ function Skills() {
                     ))}
                 </ul>
             </section>
+            <div className={`lg:hidden flex justify-center items-center ${height === '60rem' ? 'bg-transparent' : 'bg-gradient-to-t from-black via-black to-transparent'} w-full h-[12rem] absolute bottom-[-3rem]`}>
+                <button 
+                    onClick={() => {
+                        setHeight('60rem')
+                        setBtn('less')
+                        if(btn === 'less') {
+                            setHeight('28rem')
+                            setBtn('more')
+                        }
+                    }}
+                    className="border-2 border-white/30 text-white/80 p-1 flex justify-center items-center w-[6rem] h-[2rem] rounded-full"
+                >{btn}</button>
+            </div>
         </section>
     )
 }

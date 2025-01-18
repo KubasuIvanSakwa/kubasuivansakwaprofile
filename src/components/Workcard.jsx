@@ -1,10 +1,14 @@
 import { useRef } from "react"
+import { Link } from "react-router-dom"
 
-function Workcard({ tog, background, bgLight, duration, company, position }) {
+function Workcard({ tog, background, bgLight, duration, company, position, hoverdark, hoverlight }) {
 
     return (
-        <section
-            className={`${tog === 'd' ? `${background} border-white/20` : `${bgLight} border-black/20`}  relative border flex justify-between items-center w-[90%] p-4 rounded-[18px] min-h-fit cursor-pointer`}
+        <Link
+            onClick={() => {
+                localStorage.setItem('work', `${company}`)
+            }}
+            className={`${tog === 'd' ? `${background} border-white/20 ${hoverdark}` : `${bgLight} border-black/20 ${hoverlight}`}  relative border flex justify-between items-center w-[90%] p-4 rounded-[18px] min-h-fit cursor-pointer`}
         >
             <div>
                 <p className="text-sm text-white/60 font-bold">{duration}</p>
@@ -12,7 +16,7 @@ function Workcard({ tog, background, bgLight, duration, company, position }) {
                 <p className="lg:text-xl text-lgfont-bold">{position}</p>
             </div>
             <p className="bg-white/80 absolute lg:relative bottom-1 right-1  rounded-full border-2 border-black/60 lg:w-[3rem] lg:h-[3rem] w-[2rem] h-[2rem] flex justify-center items-center text-black/60 lg:text-3xl text-xl font-bold">+</p>
-        </section>
+        </Link>
     )
 }
 

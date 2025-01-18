@@ -16,6 +16,7 @@ const Hero = lazy(()=> import('./components/Hero'))
 
 
 function App() {
+  
 
   const routes = createBrowserRouter(createRoutesFromElements(
     <Route>
@@ -34,7 +35,9 @@ function App() {
           <Route path='projects' element={<Projects />} />
       </Route>
     </Route>
-  ))
+  ),
+  { basename: "/" }
+)
 
   return (
     <Suspense fallback={<Loader />}>

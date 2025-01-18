@@ -20,8 +20,13 @@ function Skills() {
         {id: 8, name: 'Figma', logo: `bg-[url('/src/assets/logos/figma.svg')]`, description:'Design Tool' }
     ]
 
+    const isMobileOrTablet = window.innerWidth <= 1024; 
+
     return (
-        <section className={`lg:h-[90vh] h-[${height}] p-2 mb-1 w-full overflow-hidden relative`}>
+
+        <section
+            style={isMobileOrTablet ? { height } : {}}
+            className="lg:h-[90vh] p-2 mb-1 w-full overflow-hidden relative">
             <h1 className={`lg:text-xl p-2 lg:ml-10 mt-7 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold mb-3`}>Skills</h1>
             <section
                 className="h-[100px] lg:pl-[5rem] p-2 lg:ml-[2rem] flex gap-2 flex-wrap"

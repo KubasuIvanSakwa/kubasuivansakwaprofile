@@ -1,6 +1,11 @@
 import { useState } from "react"
-import { useOutletContext } from "react-router-dom"
+import { Link, useOutletContext } from "react-router-dom"
 import { Octokit } from "octokit"
+import eternal from '/src/assets/externallink.svg'
+import logo from '/src/assets/favicon.ico'
+import reactlogo from '/src/assets/react.svg'
+import flutter from '/src/assets/flutter.svg'
+import python from '/src/assets/python.svg'
 
 function Projects() {
     const [tog] = useOutletContext()
@@ -15,10 +20,12 @@ function Projects() {
 
     const updateUserData = async () => {
         try {
-            const username = user.trim();
-            const response = await octokit.request(`GET /users/${username}`);
-            setUserData(response.data);
-            setError(undefined);
+            const username = user.trim()
+            const repos = await octokit.request(`GET /users/${username}/repos`)
+            const orgs = await octokit.request(`GET /users/${username}/orgs`)
+            setUserData(repos.data)
+            setError(undefined)
+            console.log(repos)
         }
         catch (ex) {
             if (ex instanceof Error) setError(ex);
@@ -27,7 +34,7 @@ function Projects() {
     }
 
     return (
-        <section className="text-white pt-[5rem] w-full relative overflow-y-auto">
+        <section className="text-white pt-[5rem] w-full relative overflow-y-auto min-h-fit">
             <h1 className={`text-xl p-2 ${tog === 'l' ? 'text-black/70' : 'text-white/70'} font-extrabold   mb-3`}>Projects</h1>
             <div className="w-full flex items-center justify-center">
                 <h1 className={`text-xl p-2 ${tog === 'l' ? 'text-black/70' : 'text-white/70'}  font-extrabold mb-3`}>Productivity Chart</h1>
@@ -58,50 +65,75 @@ function Projects() {
                 }
             </div>
 
-            <div className="w-full flex justify-center p-2 relative z-20 mt-4">
-                <div className="bg-gray-800/50  rounded-full flex justify-center items-center gap-2 p-[0.2rem]">
-                    <button
-                        className={`${bg ? 'bg-white/80 text-black/70' : 'bg-tranparent hover:bg-white/60 text-white/70 hover:text-black/70'} rounded-full p-1 pl-3 pr-3`}
-                        onClick={() => {
-                            setBg(true)
-                            setBg2(false)
-                        }}
-                    >Completed Projects</button>
-                    <button
-                        className={`${bg2 ? 'bg-white/80 text-black/70' : 'bg-transparent hover:bg-white/60 text-white/70 hover:text-black/70'}  rounded-full p-1 pl-3 pr-3`}
-                        onClick={() => {
-                            updateUserData()
-                            setBg(false)
-                            setBg2(true)
-                        }}
-                    >Upcoming Projects</button>
-                </div>
-            </div>
+            <div className="relative w-full h-fit mt-4 p-4 flex gap-10 flex-wrap">
 
-            <div className="relative border w-full h-fit mt-4 p-3 flex justify-center">
-                <div className="flex justify-between p-1 flex-col w-[20rem] h-[24rem] rounded-2xl bg-red-500 ">
-                    {/* top items */}
-                    <div className="w-full flex flex-col items-end p-2 rounded-t-2xl">
-                        <p>Months</p>
-
+                <div className="relative p-1 lg:border-none border-2 border-white/20 overflow-hidden w-[20rem] h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
                         {/* drop down for links */}
-                        <p>links</p>
-                    </div>
+                        <div className="flex w-full justify-end p-1">
 
-                    {/* bottom items */}
-                    <div>
-                        {/* project name */}
-                        <h4>VerityCore Labs</h4>
+                            <Link
+                                to=""
+                                className="border-2 border-white/50 opacity-[.8] hover:opacity-[1] flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
+                            >
+                                <p className="inline-block">
+                                    <img src={eternal} alt="External link" className="w-[2rem]"/>
+                                </p> 
+                            </Link>
 
-                        {/* project description */}
-                        <div>
-                            <p>Total Volume</p>
-                            <p>Progress bar %6.5</p>
                         </div>
-                    </div>
-                </div>
-            </div>
+                        <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
+                            <p className="text-2xl pacifico-regular">10</p>
+                        </div>
 
+                        <img src={reactlogo} alt="Logo" className="absolute w-[18rem] z-[60] bottom-[-6rem] opacity-[.8] left-[-5rem] bg-none"/>
+                        <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem]">React Projects</p>
+                </div>
+
+                <div className="relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden w-[20rem] h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
+                        {/* drop down for links */}
+                        <div className="flex w-full justify-end p-1">
+
+                            <Link
+                                to=""
+                                className="border-2 border-white/50 opacity-[.8] hover:opacity-[1] flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
+                            >
+                                <p className="inline-block">
+                                    <img src={eternal} alt="External link" className="w-[2rem]"/>
+                                </p> 
+                            </Link>
+
+                        </div>
+                        <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
+                            <p className="text-2xl pacifico-regular">10</p>
+                        </div>
+
+                        <img src={flutter} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none"/>
+                        <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] z-[65] w-[2rem]">Flutter <span className="text-black">P</span>rojects</p>
+                </div>
+
+                <div className="relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden w-[20rem] h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
+                        {/* drop down for links */}
+                        <div className="flex w-full justify-end p-1">
+
+                            <Link
+                                to=""
+                                className="border-2 border-white/50 opacity-[.8] hover:opacity-[1] flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
+                            >
+                                <p className="inline-block">
+                                    <img src={eternal} alt="External link" className="w-[2rem]"/>
+                                </p> 
+                            </Link>
+
+                        </div>
+                        <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
+                            <p className="text-2xl pacifico-regular">10</p>
+                        </div>
+
+                        <img src={python} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none"/>
+                        <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem] z-[65]">Python Projects</p>
+                </div>
+
+            </div>
         </section>
     )
 }

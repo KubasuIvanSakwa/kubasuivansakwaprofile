@@ -2,7 +2,6 @@ import { useState } from "react"
 import { Link, useOutletContext } from "react-router-dom"
 import { Octokit } from "octokit"
 import eternal from '/src/assets/externallink.svg'
-import logo from '/src/assets/favicon.ico'
 import reactlogo from '/src/assets/react.svg'
 import flutter from '/src/assets/flutter.svg'
 import python from '/src/assets/python.svg'
@@ -67,18 +66,19 @@ function Projects() {
 
             <div className="relative w-full h-fit mt-4 p-4 flex gap-10 flex-wrap">
 
-                <div className="relative p-1 lg:border-none border-2 border-white/20 overflow-hidden w-[20rem] h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
+                <Link 
+                    to="projects/jsx"
+                    className="opacity-[.7] hover:opacity-[1] relative p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
                         {/* drop down for links */}
                         <div className="flex w-full justify-end p-1">
 
-                            <Link
-                                to=""
-                                className="border-2 border-white/50 opacity-[.8] hover:opacity-[1] flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
+                            <div
+                                className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
                             >
                                 <p className="inline-block">
                                     <img src={eternal} alt="External link" className="w-[2rem]"/>
                                 </p> 
-                            </Link>
+                            </div>
 
                         </div>
                         <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
@@ -87,15 +87,17 @@ function Projects() {
 
                         <img src={reactlogo} alt="Logo" className="absolute w-[18rem] z-[60] bottom-[-6rem] opacity-[.8] left-[-5rem] bg-none"/>
                         <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem]">React Projects</p>
-                </div>
+                </Link>
 
-                <div className="relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden w-[20rem] h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
+                <Link 
+                    to="projects/dart"
+                    className="opacity-[.7] hover:opacity-[1]  relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
                         {/* drop down for links */}
                         <div className="flex w-full justify-end p-1">
 
                             <Link
                                 to=""
-                                className="border-2 border-white/50 opacity-[.8] hover:opacity-[1] flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
+                                className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
                             >
                                 <p className="inline-block">
                                     <img src={eternal} alt="External link" className="w-[2rem]"/>
@@ -109,15 +111,17 @@ function Projects() {
 
                         <img src={flutter} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none"/>
                         <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] z-[65] w-[2rem]">Flutter <span className="text-black">P</span>rojects</p>
-                </div>
+                </Link>
 
-                <div className="relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden w-[20rem] h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
+                <Link
+                    to="projects/py"
+                    className="opacity-[.7] hover:opacity-[1] relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
                         {/* drop down for links */}
                         <div className="flex w-full justify-end p-1">
 
                             <Link
                                 to=""
-                                className="border-2 border-white/50 opacity-[.8] hover:opacity-[1] flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
+                                className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
                             >
                                 <p className="inline-block">
                                     <img src={eternal} alt="External link" className="w-[2rem]"/>
@@ -131,7 +135,7 @@ function Projects() {
 
                         <img src={python} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none"/>
                         <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem] z-[65]">Python Projects</p>
-                </div>
+                </Link>
 
             </div>
         </section>

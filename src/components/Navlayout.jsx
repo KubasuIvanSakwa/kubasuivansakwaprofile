@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-function Navlayout({ img1, img2, url1, url2, tog }) {
+function Navlayout({ img0, img1, img2, url1, url2, tog }) {
+    const loaction = useLocation()
 
     return (
         <section className={`${tog === 'd' ? 'bg-[#1b1b1b]' : 'bg-[#1b1b1b]/80'} fixed border border-white/10 flex flex-col gap-[2rem] justify-center h-[8.8rem] w-[4%] rounded-full`}>
@@ -21,7 +22,7 @@ function Navlayout({ img1, img2, url1, url2, tog }) {
                 to={url2}
                 className='p-3 w-full h-fit rounded-full hover:bg-[#202020]'
             >
-                <img src={img2} alt=""/>
+                {location.pathname.includes('projects') ? <img src={img2} alt=""/> : <img src={img0} alt=""/>}
             </Link>}
             {url2.includes('http') && <a
                 href={url2}

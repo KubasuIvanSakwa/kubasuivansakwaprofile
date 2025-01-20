@@ -3,12 +3,14 @@ import Dropdown from "../assets/dropdown.svg";
 import Github from '/src/assets/logos/github.svg';
 import Linkedin from '/src/assets/logos/linkedin.svg';
 import Home from '/src/assets/logos/home.svg';
-import Projects from '/src/assets/logos/projects.svg';
-import { Link } from "react-router-dom";
+import Projectsopen from '/src/assets/logos/projectsopen.svg'
+import Projectsclosed from '/src/assets/logos/projectsclosed.svg'
+import { Link, useLocation } from "react-router-dom";
 
 function Nav({ tog, fn, themeref }) {
-    const [toggle, setToggle] = useState(false);
+    const [toggle, setToggle] = useState(false)
     const dropdownRef = useRef(null); // Ref for dropdown container
+    const location = useLocation()
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -45,7 +47,7 @@ function Nav({ tog, fn, themeref }) {
                             </Link>
                             <Link to="projects" className="w-full h-fit rounded-full hover:bg-[#202020]"
                                 onClick={() => setToggle(false)}>
-                                <img src={Projects} alt="Projects" className="h-[1.5rem] w-[1.5rem]" />
+                                {location.pathname.includes('projects') ? <img src={Projectsopen} alt="Projects" className="h-[1.5rem] w-[1.5rem]" /> : <img src={Projectsclosed} alt="Projects" className="h-[1.5rem] w-[1.5rem]" />}
                             </Link>
                             <a href="https://github.com/KubasuIvanSakwa" target="_blank" rel="noopener noreferrer"
                                 className="w-full h-fit rounded-full hover:bg-[#202020]"

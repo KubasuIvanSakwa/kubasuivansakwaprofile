@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useOutletContext } from "react-router-dom"
 import { Octokit } from "octokit"
 import eternal from '/src/assets/externallink.svg'
@@ -8,29 +8,65 @@ import python from '/src/assets/python.svg'
 
 function Projects() {
     const [tog] = useOutletContext()
+    const [windowload, setWindowLoad] = useState(false)
     const [bg, setBg] = useState(true)
     const [bg2, setBg2] = useState(false)
     const [user, setUser] = useState('kubasuIvanSakwa')
     const [userData, setUserData] = useState(undefined)
     const [repoData, setRepoData] = useState([])
+    const [fload, setFload] = useState(false)
     const [error, setError] = useState(undefined)
+    const [filteredRepos, setFilteredRepos] = useState([])
+    const [sload, setSload] = useState(false)
+    const [count, setCount] = useState([])
 
-    const octokit = new Octokit();
+    const searchNames = ['shop', 'codeshare', 'The-Wall-of-Projects-React-', 'antiflimflam', 'kubasuivansakwaprofile']
 
-    const updateUserData = async () => {
-        try {
-            const username = user.trim()
-            const repos = await octokit.request(`GET /users/${username}/repos`)
-            const orgs = await octokit.request(`GET /users/${username}/orgs`)
-            setUserData(repos.data)
-            setError(undefined)
-            console.log(repos)
+    const octokit = new Octokit()
+
+    window.addEventListener('load', () => {
+        setWindowLoad(prev => !prev)
+    })
+
+    useEffect(() => {
+        let Fetch = async () => {
+            try {
+                const username = user.trim()
+                const repos = await octokit.request(`GET /users/${username}/repos`)
+                const orgs = await octokit.request(`GET /users/${username}/orgs`)
+                setRepoData(repos.data)
+                setError(undefined)
+                setFload(prevfload => !prevfload)
+            }
+            catch (ex) {
+                if (ex instanceof Error) setError(ex)
+                else console.error(ex)
+            }
         }
-        catch (ex) {
-            if (ex instanceof Error) setError(ex);
-            else console.error(ex);
-        }
-    }
+
+        Fetch()
+    }, [windowload])
+
+    useEffect(() => {
+        const result = repoData.filter(repo => searchNames.includes(repo.name))
+        setFilteredRepos(result)
+        console.log(filteredRepos)
+
+        const counts = {}
+
+        // Loop through repositories and count languages
+        filteredRepos.forEach(repo => {
+            const language = repo.language || 'Unknown'  // Handle case where language might be undefined
+            counts[language] = (counts[language] || 0) + 1
+        })
+
+        // Set the language counts state
+        setCount(counts)
+        setSload(prevsload => !prevsload)
+        console.log(counts)
+    }, [fload])
+
+
 
     return (
         <section className="text-white pt-[5rem] w-full relative overflow-y-auto min-h-fit">
@@ -66,75 +102,78 @@ function Projects() {
 
             <div className="relative w-full h-fit mt-4 p-4 flex gap-10 flex-wrap">
 
-                <Link 
-                    to="projects/jsx"
+                <Link
+                    to="jsx"
+                    state = {{data: filteredRepos}}
                     className="opacity-[.7] hover:opacity-[1] relative p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
-                        {/* drop down for links */}
-                        <div className="flex w-full justify-end p-1">
+                    {/* drop down for links */}
+                    <div className="flex w-full justify-end p-1">
 
-                            <div
-                                className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
-                            >
-                                <p className="inline-block">
-                                    <img src={eternal} alt="External link" className="w-[2rem]"/>
-                                </p> 
-                            </div>
-
-                        </div>
-                        <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
-                            <p className="text-2xl pacifico-regular">10</p>
+                        <div
+                            className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
+                        >
+                            <p className="inline-block">
+                                <img src={eternal} alt="External link" className="w-[2rem]" />
+                            </p>
                         </div>
 
-                        <img src={reactlogo} alt="Logo" className="absolute w-[18rem] z-[60] bottom-[-6rem] opacity-[.8] left-[-5rem] bg-none"/>
-                        <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem]">React Projects</p>
-                </Link>
+                    </div>
+                    <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
+                        <p className="text-2xl pacifico-regular">{count.JavaScript || 0}</p>
+                    </div>
 
-                <Link 
-                    to="projects/dart"
-                    className="opacity-[.7] hover:opacity-[1]  relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
-                        {/* drop down for links */}
-                        <div className="flex w-full justify-end p-1">
-
-                            <Link
-                                to=""
-                                className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
-                            >
-                                <p className="inline-block">
-                                    <img src={eternal} alt="External link" className="w-[2rem]"/>
-                                </p> 
-                            </Link>
-
-                        </div>
-                        <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
-                            <p className="text-2xl pacifico-regular">10</p>
-                        </div>
-
-                        <img src={flutter} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none"/>
-                        <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] z-[65] w-[2rem]">Flutter <span className="text-slate-300">P</span>rojects</p>
+                    <img src={reactlogo} alt="Logo" className="absolute w-[18rem] z-[60] bottom-[-6rem] opacity-[.8] left-[-5rem] bg-none" />
+                    <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem]">React Projects</p>
                 </Link>
 
                 <Link
-                    to="projects/py"
+                    to="dart"
+                    state = {{data: filteredRepos}}
+                    className="opacity-[.7] hover:opacity-[1]  relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
+                    {/* drop down for links */}
+                    <div className="flex w-full justify-end p-1">
+
+                        <Link
+                            to=""
+                            className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
+                        >
+                            <p className="inline-block">
+                                <img src={eternal} alt="External link" className="w-[2rem]" />
+                            </p>
+                        </Link>
+
+                    </div>
+                    <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
+                        <p className="text-2xl pacifico-regular">{count.Dart || 0}</p>
+                    </div>
+
+                    <img src={flutter} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none" />
+                    <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] z-[65] w-[2rem]">Flutter <span className="text-slate-300">P</span>rojects</p>
+                </Link>
+
+                <Link
+                    to="py"
+                    state = {{data: filteredRepos}}
                     className="opacity-[.7] hover:opacity-[1] relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
-                        {/* drop down for links */}
-                        <div className="flex w-full justify-end p-1">
+                    {/* drop down for links */}
+                    <div className="flex w-full justify-end p-1">
 
-                            <Link
-                                to=""
-                                className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
-                            >
-                                <p className="inline-block">
-                                    <img src={eternal} alt="External link" className="w-[2rem]"/>
-                                </p> 
-                            </Link>
+                        <Link
+                            to=""
+                            className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
+                        >
+                            <p className="inline-block">
+                                <img src={eternal} alt="External link" className="w-[2rem]" />
+                            </p>
+                        </Link>
 
-                        </div>
-                        <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
-                            <p className="text-2xl pacifico-regular">10</p>
-                        </div>
+                    </div>
+                    <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
+                        <p className="text-2xl pacifico-regular">{count.python || 0}</p>
+                    </div>
 
-                        <img src={python} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none"/>
-                        <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem] z-[65]">Python Projects</p>
+                    <img src={python} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none" />
+                    <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem] z-[65]">Python Projects</p>
                 </Link>
 
             </div>

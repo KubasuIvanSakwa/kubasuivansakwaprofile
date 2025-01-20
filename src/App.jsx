@@ -36,7 +36,7 @@ function App() {
         />
           <Route path='projects' element={<Projlayout />}>
             <Route index element={<Projects />} />
-            <Route path='projects/:id' element={<Projectpage />} />
+            <Route path=':id' element={<Projectpage />} />
           </Route>
       </Route>
     </Route>

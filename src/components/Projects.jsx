@@ -110,7 +110,7 @@ function Projects() {
                         </div>
 
                         <img src={flutter} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none"/>
-                        <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] z-[65] w-[2rem]">Flutter <span className="text-black">P</span>rojects</p>
+                        <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] z-[65] w-[2rem]">Flutter <span className="text-slate-300">P</span>rojects</p>
                 </Link>
 
                 <Link

@@ -5,7 +5,7 @@ function Projcard() {
 
     return (
         <section className='mt-[2rem] flex justify-between flex-wrap'>
-                <div className='relative text-gray-800 border border-gray-300 rounded-[1.4rem] w-[20rem] h-[15rem] p-4 flex flex-col gap-3'>
+                <div className='relative text-gray-800 border-2 border-gray-300/50 hover:border-gray-300/70 rounded-[1.4rem] w-[20rem] h-[15rem] p-4 flex flex-col gap-3'>
                     <p className='text-lg font-semibold'>Name</p>
                     <p className='text-sm text-gray-600'>Short description goes here</p>
                     <div className='absolute bottom-2 flex gap-2 p-2 w-full left-0 justify-end items-center'>

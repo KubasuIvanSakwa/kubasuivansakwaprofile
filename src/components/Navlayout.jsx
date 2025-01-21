@@ -24,7 +24,7 @@ function Navlayout({ img0, img1, img2, url1, url2, tog, blog }) {
             >
                 {location.pathname.includes('projects') ? <img src={img2} alt=""/> : <img src={img0} alt=""/>}
             </Link>}
-            {blog && <Link className='flex justify-center p-1'>
+            {blog && <Link to="blog" className='flex justify-center p-1'>
                     <p className="text-white rounded-full w-[2rem] h-[2rem] bg-black-500 border-2 flex p-1 text-lg pacifico-regular">blog</p>
             </Link>}
             {url2.includes('http') && <a

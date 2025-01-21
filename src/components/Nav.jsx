@@ -48,7 +48,7 @@ function Nav({ tog, fn, themeref }) {
                                 onClick={() => setToggle(false)}>
                                 {location.pathname.includes('projects') ? <img src={Projectsopen} alt="Projects" className="h-[1.5rem] w-[1.5rem]" /> : <img src={Projectsclosed} alt="Projects" className="h-[1.5rem] w-[1.5rem]" />}
                             </Link>
-                            <Link className='flex justify-center p-1'>
+                            <Link to="blog" className='flex justify-center p-1'>
                                 <p className="text-white rounded-full w-[2rem] h-[2rem] bg-black-500 border-2 flex p-1 text-lg pacifico-regular">blog</p>
                             </Link>
                             <a href="https://github.com/KubasuIvanSakwa" target="_blank" rel="noopener noreferrer"

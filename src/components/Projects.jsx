@@ -48,23 +48,23 @@ function Projects() {
     }, [windowload])
 
     useEffect(() => {
-        const result = repoData.filter(repo => searchNames.includes(repo.name))
-        setFilteredRepos(result)
-        console.log(filteredRepos)
-
-        const counts = {}
-
-        // Loop through repositories and count languages
-        filteredRepos.forEach(repo => {
-            const language = repo.language || 'Unknown'  // Handle case where language might be undefined
-            counts[language] = (counts[language] || 0) + 1
-        })
-
-        // Set the language counts state
-        setCount(counts)
-        setSload(prevsload => !prevsload)
-        console.log(counts)
-    }, [fload])
+        const result = repoData.filter(repo => searchNames.includes(repo.name));
+        setFilteredRepos(result);
+        setFload((prevfload) => !prevfload); // Optional if needed for loading states
+    }, [repoData]);
+    
+    useEffect(() => {
+        if (filteredRepos.length > 0) {
+            const counts = {};
+            filteredRepos.forEach(repo => {
+                const language = repo.language || 'Unknown'; // Handle undefined language
+                counts[language] = (counts[language] || 0) + 1;
+            });
+            setCount(counts);
+            console.log("Counts updated:", counts);
+        }
+    }, [filteredRepos]);
+    
 
 
 

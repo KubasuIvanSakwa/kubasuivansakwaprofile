@@ -21,6 +21,7 @@ function Projects() {
     const [count, setCount] = useState([])
 
     const searchNames = ['shop', 'codeshare', 'The-Wall-of-Projects-React-', 'antiflimflam', 'kubasuivansakwaprofile']
+    
 
     const octokit = new Octokit()
 

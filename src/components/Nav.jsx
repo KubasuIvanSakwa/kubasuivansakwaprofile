@@ -37,9 +37,8 @@ function Nav({ tog, fn, themeref }) {
                     >
                         <img src={Dropdown} alt="Dropdown icon" />
                         <div
-                            className={`${
-                                toggle ? "flex" : "hidden"
-                            } ${tog === 'd' ? "bg-[#1b1b1b]" : "bg-[#1b1b1b]/90"} absolute top-[2.5rem] h-fit w-[3rem] p-3 flex-col items-center justify-center rounded-full gap-4`}
+                            className={`${toggle ? "flex" : "hidden"
+                                } ${tog === 'd' ? "bg-[#1b1b1b]" : "bg-[#1b1b1b]/90"} absolute top-[2.5rem] h-fit w-[3rem] p-3 flex-col items-center justify-center rounded-full gap-4`}
                         >
                             <Link to="/" className="w-full h-fit rounded-full hover:bg-[#202020]"
                                 onClick={() => setToggle(false)}>
@@ -48,6 +47,9 @@ function Nav({ tog, fn, themeref }) {
                             <Link to="projects" className="w-full h-fit rounded-full hover:bg-[#202020]"
                                 onClick={() => setToggle(false)}>
                                 {location.pathname.includes('projects') ? <img src={Projectsopen} alt="Projects" className="h-[1.5rem] w-[1.5rem]" /> : <img src={Projectsclosed} alt="Projects" className="h-[1.5rem] w-[1.5rem]" />}
+                            </Link>
+                            <Link className='flex justify-center p-1'>
+                                <p className="text-white rounded-full w-[2rem] h-[2rem] bg-black-500 border-2 flex p-1 text-lg pacifico-regular">blog</p>
                             </Link>
                             <a href="https://github.com/KubasuIvanSakwa" target="_blank" rel="noopener noreferrer"
                                 className="w-full h-fit rounded-full hover:bg-[#202020]"

@@ -10,10 +10,9 @@ function Projectpage() {
     const { id } = useParams()
     const location = useLocation()
     const [lang, setLang] = useState()
-    const [filtered, setFiltered] = useState([]) // Initialize as an empty array
-    console.log(location)
-    const urlstate = location.state?.data // Ensure urlstate is properly fetched, using optional chaining
-
+    const [filtered, setFiltered] = useState([]) 
+    const urlstate = location.state?.data
+    
     useEffect(() => {
         // Set the language based on the path
         if(location.pathname.includes('jsx')) {

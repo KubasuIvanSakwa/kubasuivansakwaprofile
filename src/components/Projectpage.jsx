@@ -47,7 +47,9 @@ function Projectpage() {
                         <Projcard key={repo.id} title={repo.name} desc={repo.description} giturl={repo.html_url} exturl={''} /> // Ensure that each Projcard has a unique 'key' prop
                     ))
                 ) : (
-                    <p className='text-white'>Let Me Cook</p> // Display message if no repositories are available
+                    <div className='text-white w-full flex justify-center items-center text-xl h-[10rem]'>
+                        Let Me Cook...
+                    </div> // Display message if no repositories are available
                 )}
             </div>
         </section>

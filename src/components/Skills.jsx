@@ -24,16 +24,16 @@ function Skills() {
     return (
         <section
             style={isMobileOrTablet ? { height } : {}}
-            className="lg:h-[90vh] p-2 mb-1 w-full overflow-hidden relative"
+            className="h-fit p-2 mb-1 w-full overflow-hidden"
         >
             <h1 className={`lg:text-xl p-2 lg:ml-10 mt-7 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold mb-3`}>Skills</h1>
             <section
                 className="h-[100px] lg:pl-[5rem] p-2 lg:ml-[2rem] flex gap-2 flex-wrap"
             >
-                <ul className="flex flex-wrap w-full h-fit pb-3 gap-2">
+                <ul className="flex w-full h-fit pb-3 gap-2">
                     {skills.map(skill => (
                         <li key={skill.id} className="lg:w-[40%] w-full lg:last:ml-[10rem]">
-                            <SkillCards logo={skill.logo} desc={skill.description} name={skill.name} />
+                            <SkillCards logo={skill.logo}/>
                         </li>
                     ))}
                 </ul>

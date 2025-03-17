@@ -13,6 +13,7 @@ import Projectpage from './components/Projectpage'
 import Blog from './components/Blog'
 import Blogcontent from './components/Blogcontent'
 import Bloglayout from './components/Bloglayout'
+import Jump from './components/Jump'
 const Layout = lazy(()=> import('./components/Layout'))
 const WorkExperience = lazy(()=> import('./components/WorkExperience'))
 const Skills = lazy(()=> import('./components/Skills'))
@@ -28,14 +29,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route
           index
-          element={
-            <>
-              <Hero />
-              <WorkExperience />
-              <Skills />
-              <Analytics />
-            </>
-          }
+          element={<Jump />}
         />
           <Route path='projects' element={<Projlayout />}>
             <Route index element={<Projects />} />

@@ -233,6 +233,30 @@ a{
     }
 }
 
+.center-piece::before {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: url(src/assets/noisebg.svg);
+    opacity: .3;
+    z-index: -2;
+}
+
+.center-piece::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: .6;
+    z-index: -1;
+}
+
 /* .card-1:before {
     content: '';
     position: absolute;

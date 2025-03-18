@@ -8,8 +8,8 @@ function Jump() {
     return (
         <section  className="m-h-fit pt-5">
             <Hero />
-            <WorkExperience/>
             <Skills />
+            <WorkExperience/>
             <Analytics />
         </section>
     )

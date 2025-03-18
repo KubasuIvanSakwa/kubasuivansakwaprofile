@@ -233,7 +233,7 @@ a{
     }
 }
 
-.center-piece::before {
+.center-piece-dark::before {
     content:'';
     position: absolute;
     left: 0;
@@ -245,7 +245,7 @@ a{
     z-index: -2;
 }
 
-.center-piece::after {
+.center-piece-dark::after {
     content:'';
     position: absolute;
     left: 0;
@@ -253,6 +253,18 @@ a{
     height: 100%;
     width: 100%;
     background: black;
+    opacity: .6;
+    z-index: -1;
+}
+
+.center-piece-light::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
     opacity: .6;
     z-index: -1;
 }

@@ -26,19 +26,25 @@ function Skills() {
             style={isMobileOrTablet ? { height } : {}}
             className="h-fit p-2 mb-1 w-full overflow-hidden"
         >
-            <h1 className={`lg:text-xl p-2 lg:ml-10 mt-7 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold mb-3`}>Skills</h1>
             <section
-                className="h-[100px] lg:pl-[5rem] p-2 lg:ml-[2rem] flex gap-2 flex-wrap"
+                    style={{
+                        maxWidth: '100%',
+                        overflowX: 'auto',
+                        overflowY: 'hidden',
+                        scrollbarWidth: 'thin', /* For Firefox */
+                        scrollbarColor: '#58585891 transparent', /* For Firefox */ // For IE and Edge
+                    }}
+                className="h-[90px] lg:pl-[5rem] p-2"
             >
-                <ul className="flex w-full h-fit pb-3 gap-2">
+                <ul className="flex flex-row w-full h-fit pb-3">
                     {skills.map(skill => (
-                        <li key={skill.id} className="lg:w-[40%] w-full lg:last:ml-[10rem]">
+                        <li key={skill.id} className="lg:w-[30%] w-full">
                             <SkillCards logo={skill.logo}/>
                         </li>
                     ))}
                 </ul>
             </section>
-            <div className={`lg:hidden flex justify-center items-center ${height === '60rem' ? 'bg-transparent' : `bg-gradient-to-t ${tog === 'd' ? 'from-black via-black' : 'from-white via-white'} to-transparent`} w-full h-[12rem] absolute bottom-[-3rem]`}>
+            {/* <div className={`lg:hidden flex justify-center items-center ${height === '60rem' ? 'bg-transparent' : `bg-gradient-to-t ${tog === 'd' ? 'from-black via-black' : 'from-white via-white'} to-transparent`} w-full h-[12rem] absolute bottom-[-3rem]`}>
                 <button
                     onClick={() => {
                         if (btn === 'more') {
@@ -51,7 +57,7 @@ function Skills() {
                     }}
                     className={`border-2 ${tog === 'd' ? 'border-white/30 text-white/80' : 'border-black/30 text-black/80'} p-1 flex justify-center items-center w-[6rem] h-[2rem] rounded-full`}
                 >{btn}</button>
-            </div>
+            </div> */}
         </section>
     )
 }

@@ -66,6 +66,7 @@ function Projects() {
         }
     }, [filteredRepos]);
     
+    console.log(repoData)
 
 
 

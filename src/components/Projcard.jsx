@@ -1,29 +1,22 @@
-import eternal from '/src/assets/externallink.svg'
-import Github from '/src/assets/logos/github.svg'
 
 function Projcard({ title, desc, giturl, exturl }) {
 
     return (
-        <section className='mt-[2rem] flex justify-between flex-wrap'>
-            <div className='relative bg-black/70 border-2 border-gray-300/50 hover:border-gray-300/70 rounded-[1.4rem] lg:w-[20rem] w-full h-[15rem] p-4 flex flex-col gap-3'>
-                <p className='text-xl text-white font-extralight'>{title}</p>
-                <div className='relative font-bold text-gray-600 h-[8rem] overflow-hidden'>
-                    <p>{desc}</p>
-                    <div className="bg-gradient-to-t from-black/90 via-black/90 to-transparent h-[10rem] w-full absolute bottom-[-4.5rem]"></div>
-                </div>
-                <div className='absolute bottom-2 flex gap-2 p-2 w-full left-0 justify-end items-center'>
-                    <div className="flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem]">
-                        <a href={giturl} target="_blank" className="inline-block">
-                            <img src={Github} alt="External link" className="w-[2rem]" />
-                        </a>
-                    </div>
+        <section className="mt-5">
+            <div className="opacity-[.9] hover:opacity-[1] relative border-2 hover:border-white/50 border-white/20 overflow-hidden lg:w-[25rem] md:w-[25rem] w-full h-[16rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
+                <div className="absolute w-full h-full bg-[url('/src/assets/codeedit.png')] bg-cover bg-no-repeat">
 
-                    {/* <div className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[1.7rem] h-[1.7rem]">
-                        <a href={exturl} target="_blank" className="inline-block">
-                            <img src={eternal} alt="External link" className="w-[2rem]" />
-                        </a>
-                    </div> */}
-                    {/* <Link className=''>more</Link> */}
+                </div>
+                <div className="absolute w-[15rem] border-2 border-white/20 shadow-sm rounded-lg bottom-[0.6rem] right-[0.2rem] h-[10rem] bg-[url('/src/assets/selfsite.png')] bg-cover bg-no-repeat">
+
+                </div>
+
+                <div className="absolute z-20 w-full h-full flex justify-center items-center">
+                    <button className="w-[13rem] border border-white/20 h-[2.5rem] bg-black/80 backdrop-blur-sm rounded-full flex justify-center items-center">
+                        <p className="btn-shine">
+                            codeshare
+                        </p>
+                    </button>
                 </div>
             </div>
         </section>

@@ -1,4 +1,4 @@
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useOutletContext, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import reactlogo from '/src/assets/react.svg'
@@ -12,6 +12,8 @@ function Projectpage() {
     const [lang, setLang] = useState()
     const [filtered, setFiltered] = useState([]) 
     const urlstate = location.state?.data
+
+    const [tog] = useOutletContext()
     
     useEffect(() => {
         // Set the language based on the path
@@ -24,6 +26,8 @@ function Projectpage() {
         }
     }, [location.pathname]) // Re-run when the pathname changes
 
+
+
     useEffect(() => {
         // When the language or urlstate changes, filter the repositories
         if (urlstate && lang) {
@@ -34,10 +38,10 @@ function Projectpage() {
 
     return (
         <section className='p-2'>
-            <div className="mt-[2.9rem] opacity-[.7] relative p-1 overflow-hidden w-full h-[10rem] bg-black/80">
-                {id === 'jsx' && <img src={reactlogo} alt="React Logo" className="absolute w-[18rem] z-[60] bottom-[-6rem] opacity-[.2] left-[-5rem] bg-none" />}
-                {id === 'dart' && <img src={flutter} alt="Flutter Logo" className="absolute w-[13rem] z-[60] bottom-[-2rem] opacity-[.2] left-[-2rem] bg-none" />}
-                {id === 'py' && <img src={python} alt="Python Logo" className="absolute w-[18rem] z-[60] bottom-[-6rem] opacity-[.2] left-[-5rem] bg-none" />}
+            <div className={`${tog === 'd' ? 'bg-black/80' : 'bg-white'} mt-[2.9rem] opacity-[.7] relative p-1 overflow-hidden w-full h-[10rem] bg-black/80`}>
+                {id === 'jsx' && <img src={reactlogo} alt="React Logo" className={`${tog === 'd' ? 'opacity-[.2]' : 'opacity-[.7]'} absolute w-[18rem] z-[60] bottom-[-6rem] left-[-5rem] bg-none`} />}
+                {id === 'dart' && <img src={flutter} alt="Flutter Logo" className={`${tog === 'd' ? 'opacity-[.2]' : 'opacity-[.7]'} absolute w-[18rem] z-[60] bottom-[-6rem] left-[-5rem] bg-none`} />}
+                {id === 'py' && <img src={python} alt="Python Logo" className={`${tog === 'd' ? 'opacity-[.2]' : 'opacity-[.7]'} absolute w-[18rem] z-[60] bottom-[-6rem] left-[-5rem] bg-none`}  />}
             </div>
             
             {/* Render filtered repositories if available */}

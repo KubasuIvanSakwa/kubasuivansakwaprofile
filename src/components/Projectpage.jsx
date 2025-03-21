@@ -46,7 +46,8 @@ function Projectpage() {
             
             {/* Render filtered repositories if available */}
             <div className='flex flex-wrap gap-3 lg:flex-row flex-col'>
-                {urlstate && filtered.length > 0 ? (
+                {
+                    urlstate && filtered.length > 0 ? (
                     filtered.map((repo) => (
                         <Projcard key={repo.id} title={repo.name} desc={repo.description} giturl={repo.html_url} exturl={''} /> // Ensure that each Projcard has a unique 'key' prop
                     ))

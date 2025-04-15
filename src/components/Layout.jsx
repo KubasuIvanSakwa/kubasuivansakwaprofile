@@ -19,20 +19,20 @@ function Layout() {
         }
     }
 
-    useEffect(() => {
-        if (tog === "dark theme") {
-            themeRef.current.checked = true;
-        } else if (tog === "light theme") {
-            themeRef.current.checked = false;
-        }
+    // useEffect(() => {
+    //     if (tog === "dark theme") {
+    //         themeRef.current.checked = true;
+    //     } else if (tog === "light theme") {
+    //         themeRef.current.checked = false;
+    //     }
 
-        window
-            .matchMedia("(prefers-color-scheme: dark)")
-            .addEventListener("change", function (e) {
-                const newColorScheme = e.matches ? "dark" : "light";
-                setTog(newColorScheme === "dark" ? "dark theme" : "light theme");
-            });
-    }, [tog]);
+    //     window
+    //         .matchMedia("(prefers-color-scheme: dark)")
+    //         .addEventListener("change", function (e) {
+    //             const newColorScheme = e.matches ? "dark" : "light";
+    //             setTog(newColorScheme === "dark" ? "dark theme" : "light theme");
+    //         });
+    // }, [tog]);
 
     return (
         <section

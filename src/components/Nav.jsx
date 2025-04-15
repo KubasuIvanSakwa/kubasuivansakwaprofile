@@ -26,14 +26,13 @@ function Nav({ tog, fn, themeref }) {
     }, []);
 
     return (
-        <nav className="w-[99%] rounded-full h-[3rem] pl-2 flex items-center border border-slate-500/20 justify-end fixed z-50">
-            <div className="flex justify-between items-center w-full h-fit">
-                <div className="flex items-center h-fit justify-between w-full relative left-[-0.7rem]">
+        <nav className="w-[99%] rounded-full h-[3rem] flex items-center border border-slate-500/20 justify-end fixed z-[50]">
+                <div className="flex items-center justify-between w-full h-full z-[-1]">
                     <div className="bg-[url('/src/assets/me.png')] w-[2.5rem] h-[2.5rem] bg-cover rounded-full mr-2 ml-2 opacity-70"></div>
                     <div
-                        className={`${tog === 'd' ? "bg-[#1b1b1b]" : "bg-[#1b1b1b]/60"}  lg:hidden border border-white/20 w-[4rem] h-[2rem] rounded-full flex justify-center p-4 items-center relative`}
+                        className={`${tog === 'd' ? "bg-[#1b1b1b]" : "bg-[#1b1b1b]/60"}  lg:hidden border border-white/20 w-[4rem] h-[2rem] rounded-full flex justify-center p-4 items-center relative z-[60]`}
                         ref={dropdownRef} // Attach ref to the dropdown container
-                        onClick={() => setToggle(!toggle)}
+                        onClick={() => setToggle(!toggle)} //
                     >
                         <img src={Dropdown} alt="Dropdown icon" />
                         <div
@@ -63,17 +62,15 @@ function Nav({ tog, fn, themeref }) {
                             </a>
                         </div>
                     </div>
-                    <div className="flex justify-between w-[11rem]">
-                        <input title="change-theme" type="checkbox" onClick={fn} className="l cursor-pointer" ref={themeref}></input>
+                    <div className="flex justify-between w-fit p-1 h-full items-center right-0">
                         <a href="/assets/KUBASU IVAN SAKWA.pdf"
-                            className={`border ${tog === 'dark theme' ? 'border-white/50 text-white/50' : 'border-black/50 text-black/50'} relative resume w-[6rem] rounded-r-full right-[-0.4rem] h-[2.4rem] flex items-center justify-center p-1 rounded`}
+                            className={`border ${tog === 'dark theme' ? 'border-white/50 text-white/50' : 'border-black/50 text-black/50'} relative resume w-[6rem] rounded-r-full h-[2.4rem] flex items-center justify-center p-1 rounded`}
                             download
                         >
                             <span className="">resume</span>
                         </a>
                     </div>
                 </div>
-            </div>
         </nav>
     );
 }

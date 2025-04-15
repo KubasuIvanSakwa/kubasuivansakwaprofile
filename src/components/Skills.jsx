@@ -7,7 +7,6 @@ function Skills() {
     const [ tog ] = useOutletContext()
     const [height, setHeight] = useState('28rem')
     const [btn, setBtn] = useState('more')
-    const isMobileOrTablet = window.innerWidth <= 900
 
     const skills = [
         { id: 0, name: 'JavaScript', logo: `bg-[url('/src/assets/logos/javascript.svg')]`, description: 'Language with many Frameworks' },
@@ -23,7 +22,6 @@ function Skills() {
 
     return (
         <section
-            style={isMobileOrTablet ? { height } : {}}
             className="h-fit p-2 mb-1 w-full overflow-hidden"
         >
             <section
@@ -44,7 +42,7 @@ function Skills() {
                     ))}
                 </ul>
             </section>
-            {/* <div className={`lg:hidden flex justify-center items-center ${height === '60rem' ? 'bg-transparent' : `bg-gradient-to-t ${tog === 'd' ? 'from-black via-black' : 'from-white via-white'} to-transparent`} w-full h-[12rem] absolute bottom-[-3rem]`}>
+             {/* <div className={`lg:hidden flex justify-center items-center ${height === '60rem' ? 'bg-transparent' : `bg-gradient-to-t ${tog === 'd' ? 'from-black via-black' : 'from-white via-white'} to-transparent`} w-full h-[12rem] absolute bottom-[-3rem]`}>
                 <button
                     onClick={() => {
                         if (btn === 'more') {

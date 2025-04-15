@@ -22,6 +22,17 @@ function WorkExperience() {
 
         {
             id: 1, 
+            company: 'Nima College', 
+            duration: 'Sept 2024 – Dec 2024 · 4 mos', 
+            position: 'IT Tutor', 
+            background: 'bg-green-900/20',
+            backgroundLight: 'bg-green-900/70',
+            hoverDark: 'hover:bg-green-900/50',
+            hoverLight: 'hover:bg-green-900/80',
+            companyImage: `${rawlinz}`,
+        },
+        {
+            id: 2, 
             company: 'Rawlinz Designs Limited', 
             duration: 'March 2024 - July 2024 · 5 mos', 
             position: 'React Front-end Web Developer', 
@@ -39,7 +50,7 @@ function WorkExperience() {
         >
             <h1 className={`lg:text-xl p-2 lg:ml-10 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold  mb-3`}>work experience</h1>
 
-            <section className="flex flex-col gap-2 items-center">
+            <section className="flex flex-col gap-2 items-center pb-4">
                 {Experience.map(work => (
                     <Workcard key={work.id} tog={tog} background={work.background} duration={work.duration} company={work.company} position={work.position} bgLight={work.backgroundLight} hoverdark={work.hoverDark} hoverlight={work.hoverLight} companyImage={work.companyImage} />
                 ))}

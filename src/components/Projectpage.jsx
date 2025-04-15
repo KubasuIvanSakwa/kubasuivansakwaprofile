@@ -10,7 +10,11 @@ function Projectpage() {
     const { id } = useParams()
     const location = useLocation()
     const [lang, setLang] = useState()
-    const [filtered, setFiltered] = useState([]) 
+    const [filtered, setFiltered] = useState([
+        {
+            id: 0, name: 'js', 
+        }
+    ]) 
     const urlstate = location.state?.data
 
     const [tog] = useOutletContext()
@@ -24,17 +28,15 @@ function Projectpage() {
         } else if(location.pathname.includes('py')) {
             setLang('Python')
         }
-    }, [location.pathname]) // Re-run when the pathname changes
+    }, [location.pathname])
 
 
-
-    useEffect(() => {
-        // When the language or urlstate changes, filter the repositories
-        if (urlstate && lang) {
-            const result = urlstate.filter(repo => repo.language && repo.language.toLowerCase() === lang.toLowerCase())
-            setFiltered(result)
-        }
-    }, [urlstate, lang])
+    // useEffect(() => {
+    //     if (urlstate && lang) {
+    //         const result = urlstate.filter(repo => repo.language && repo.language.toLowerCase() === lang.toLowerCase())
+    //         setFiltered(result)
+    //     }
+    // }, [urlstate, lang])
 
     return (
         <section className='p-2'>

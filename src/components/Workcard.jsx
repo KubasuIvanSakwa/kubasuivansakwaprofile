@@ -4,29 +4,28 @@ import { useState } from "react"
 
 function Workcard({ tog, background, bgLight, duration, company, position, hoverdark, hoverlight, companyImage }) {
     const [show, setShow] = useState(false)
-    console.log(companyImage)
 
     return (
         <>
             <div
-                className={`${tog === 'd' ? `${background} border-white/20 ${hoverdark}` : `${bgLight} border-black/20 ${hoverlight}`}  border flex flex-col w-[90%] p-4 rounded-[18px] min-h-fit cursor-pointer relative`}
+                className={`  border flex flex-col w-[90%] p-4 rounded-[18px] min-h-fit cursor-pointer relative`}
             >
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center relative">
                     <div>
                         <p className="text-sm text-white/60 font-bold">{duration}</p>
                         <h1 className="lg:text-2xl text-xl font-extrabold">{company}</h1>
-                        <p className="lg:text-xl text-lgfont-bold">{position}</p>
+                        <p className="lg:text-xl text-lg font-bold">{position}</p>
                     </div>
                     {!show && <p
                         onClick={() => {
                             setShow(!show)
                         }}
-                        className="bg-white/80 absolute lg:relative bottom-1 right-1  rounded-full border-2 border-black/60 lg:w-[3rem] lg:h-[3rem] w-[2rem] h-[2rem] flex justify-center items-center text-black/60 lg:text-3xl text-xl font-bold">+</p>}
+                        className="bg-white/80 absolute lg:relative lg:right-1 lg:bottom-1 bottom-[-0.7rem] right-[-0.8rem]  rounded-full border-2 border-black/60 lg:w-[3rem] lg:h-[3rem] w-[2.5rem] h-[2.5rem] flex justify-center items-center text-black/60 lg:text-3xl text-xl font-bold">+</p>}
                     {show && <p
                         onClick={() => {
                             setShow(!show)
                         }}
-                        className="bg-white/80 absolute lg:relative top-[-2.4rem] right-[-0.8rem]  rounded-full border-black/60 w-[2rem] h-[2rem] flex justify-center text-black/60 text-xl ">x</p>}
+                        className="bg-white/80 absolute top-[-1rem] right-[-1rem] lg:relative lg:top-[-2.4rem] lg:right-[-0.8rem]  rounded-full border-black/60 w-[2rem] h-[2rem] flex justify-center text-black/60 text-xl ">x</p>}
                 </div>
 
                 {show && <div className="w-full min-h-fit p-3">

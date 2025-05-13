@@ -19,21 +19,6 @@ function Layout() {
         }
     }
 
-    // useEffect(() => {
-    //     if (tog === "dark theme") {
-    //         themeRef.current.checked = true;
-    //     } else if (tog === "light theme") {
-    //         themeRef.current.checked = false;
-    //     }
-
-    //     window
-    //         .matchMedia("(prefers-color-scheme: dark)")
-    //         .addEventListener("change", function (e) {
-    //             const newColorScheme = e.matches ? "dark" : "light";
-    //             setTog(newColorScheme === "dark" ? "dark theme" : "light theme");
-    //         });
-    // }, [tog]);
-
     return (
         <section
             className={`${tog === "dark theme" ? "mainpgdark" : "mainpglight"
@@ -55,3 +40,19 @@ function Layout() {
 }
 
 export default Layout;
+
+
+    // useEffect(() => {
+    //     if (tog === "dark theme") {
+    //         themeRef.current.checked = true;
+    //     } else if (tog === "light theme") {
+    //         themeRef.current.checked = false;
+    //     }
+
+    //     window
+    //         .matchMedia("(prefers-color-scheme: dark)")
+    //         .addEventListener("change", function (e) {
+    //             const newColorScheme = e.matches ? "dark" : "light";
+    //             setTog(newColorScheme === "dark" ? "dark theme" : "light theme");
+    //         });
+    // }, [tog]);

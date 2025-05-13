@@ -278,7 +278,7 @@ a{
     top: 0;
     height: 100%;
     width: 100%;
-    background: url(src/assets/noisebg.svg);
+    background: url(public/assets/noisebg.svg);
     opacity: .3;
     z-index: -2;
 }

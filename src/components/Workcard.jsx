@@ -1,89 +1,90 @@
-import { Link } from "react-router-dom"
-import close from '../assets/close.svg'
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react";
+import arrow_down from '../assets/arrow_down.svg';
 
-function Workcard({ tog, background, bgLight, duration, company, position, hoverdark, hoverlight, companyImage }) {
-    const [show, setShow] = useState(false)
+function Workcard({ duration, company, position }) {
+    const [show, setShow] = useState(false);
+    const contentRef = useRef(null);
+
+    useEffect(() => {
+        if (contentRef.current) {
+            if (show) {
+                contentRef.current.style.maxHeight = contentRef.current.scrollHeight + "px";
+            } else {
+                contentRef.current.style.maxHeight = "0px";
+            }
+        }
+    }, [show]);
 
     return (
         <>
-            <div
-                className={`  border flex flex-col w-[90%] p-4 rounded-[18px] min-h-fit cursor-pointer relative`}
-            >
-                <div className="flex justify-between items-center relative">
-                    <div>
-                        <p className="text-sm text-white/60 font-bold">{duration}</p>
-                        <h1 className="lg:text-2xl text-xl font-extrabold">{company}</h1>
-                        <p className="lg:text-xl text-lg font-bold">{position}</p>
+            <div className="bg-[#141414] w-[90%] h-fit p-1 rounded-[0.8rem] border border-[#4B4B4B]">
+                {/* Header */}
+                <div className="flex items-center gap-1 w-full h-[6rem]">
+                    <div className="w-[0.3rem] h-[90%] bg-[#1C1A1A] ml-1 border border-[#4B4B4B]/10"></div>
+                    <div className="w-full flex justify-between items-center p-2 h-[90%] bg-gradient-to-r from-[#1C1A1A] to-transparent">
+                        <div>
+                            <p className='ml-1 font-bold'>{company}</p>
+                            <p className='ml-1 font-light text-sm text-white/80'>{duration}</p>
+                        </div>
+                        <div
+                            className='mr-3 rounded-full cursor-pointer w-[2rem] h-[2rem] flex justify-center items-center'
+                            onClick={() => setShow(prev => !prev)}
+                        >
+                            <img src={arrow_down} className={`w-[1.7rem] h-[1.7rem] transition-transform duration-300 ${show ? 'rotate-180' : ''}`} />
+                        </div>
                     </div>
-                    {!show && <p
-                        onClick={() => {
-                            setShow(!show)
-                        }}
-                        className="bg-white/80 absolute lg:relative lg:right-1 lg:bottom-1 bottom-[-0.7rem] right-[-0.8rem]  rounded-full border-2 border-black/60 lg:w-[3rem] lg:h-[3rem] w-[2.5rem] h-[2.5rem] flex justify-center items-center text-black/60 lg:text-3xl text-xl font-bold">+</p>}
-                    {show && <p
-                        onClick={() => {
-                            setShow(!show)
-                        }}
-                        className="bg-white/80 absolute top-[-1rem] right-[-1rem] lg:relative lg:top-[-2.4rem] lg:right-[-0.8rem]  rounded-full border-black/60 w-[2rem] h-[2rem] flex justify-center text-black/60 text-xl ">x</p>}
                 </div>
 
-                {show && <div className="w-full min-h-fit p-3">
-                    <div className="">
-                        <div className="w-full flex justify-end p-2 relative top-[-1rem] right-[-1rem]">
+                {/*  Content */}
+                <div
+                    ref={contentRef}
+                    className="w-[97%] ml-3 overflow-hidden transition-max-height duration-500 ease-in-out bg-gradient-to-b from-[#1C1A1A] via-transparent to-transparent rounded-[0.8rem]"
+                    style={{ maxHeight: '0px' }}
+                >
+                    {company === 'West Kenya Company(Kabras)' && 
+                        <div className="p-2 flex flex-col gap-2 text-white">
+
+                            <p className="font-bold text-white/60">
+                                As an {position} I Provided IT support by maintaining hardware, managing printers, and assisting in network setup and troubleshooting within the company’s infrastructure.
+                            </p>
                         </div>
-                        <div>
-                            <a href="https://www.linkedin.com/company/rawlinz-designs/" target="_blank" className="inline-block lg:h-[200px] h-[70px] md:h-[200px] overflow-hidden rounded-t-[10px] mt-[1rem] mb-[1rem]">
-                                <img src={companyImage} />
-                            </a>
-                            <details>
-                                <summary>Introduction</summary>
-                                <p className="lg:text-xl text-lg font-bold text-white/60">
-                                    At Rawlinz Designs, I played a key role in empowering organizations to
-                                    achieve their online presence and performance goals. As a React front-end
-                                    web developer, I contributed to creating and maintaining web applications
-                                    tailored to user needs, utilizing React, Redux, and other modern technologies
-                                    to deliver exceptional digital experiences.
-                                </p>
-                            </details>
-                            <h5 className="mt-[1rem] lg:text-2xl text-xl font-bold">Projects</h5>
-                            <ul className="ml-[1rem] font-bold text-white/80">
+                    }
+
+                    {company === 'Nima College' && 
+                        <div className="p-2 flex flex-col gap-2 text-white">
+
+                            <p className="font-bold text-white/60">
+                                As an {position} Taught ICT, computer packages, and graphic design to students, helping them build foundational tech skills in a hands-on learning environment.
+                            </p>
+                        </div>
+                    }
+
+                    
+                    {company === 'Rawlinz Designs Limited' && 
+                        <div className="p-2 flex flex-col gap-2 text-white">
+
+                            <p className="font-bold text-white/60">
+                                As a {position} I empowered organizations to achieve their online presence and performance goals...
+                            </p>
+                            <h5 className="mt-[0.4rem] font-bold">Company Projects</h5>
+                            <ul className="ml-[0.4rem] font-bold text-white/80">
                                 <li className="lg:text-lg">
                                     <p>
-                                        - contributed in creating of
-                                        <a href="https://sensationske.com/" className="underline" target="_blank"> Sensations Kenya&apos;s company website</a>
+                                        - Contributed to <a href="https://sensationske.com/" className="underline" target="_blank" rel="noreferrer">Sensations Kenya</a>
                                     </p>
                                 </li>
                                 <li className="lg:text-lg">
                                     <p>
-                                        - contributed to creating of  <a href="https://kifaruproperties.com/" className="underline" target="_blank">Kifaru Properties&apos; website</a>
+                                        - Worked on <a href="https://kifaruproperties.com/" className="underline" target="_blank" rel="noreferrer">Kifaru Properties</a>
                                     </p>
                                 </li>
                             </ul>
-
-                            <details>
-                                <summary className="mt-[1rem]">Key Contributions</summary>
-                                <ul className="flex flex-col gap-2 text-white/80">
-                                    <li className="lg:text-lg">- Contributed to frontend web development using Laravel, enhancing functionality and user
-                                        interface, leading to a 40% improvement in user engagement.</li>
-                                    <li className="lg:text-lg">- Managed and updated the company’s codebase on GitHub, streamlining version control
-                                        and facilitating cross-team collaboration.</li>
-                                    <li className="lg:text-lg">- Debugged and resolved 50+ critical code issues, optimizing workflows and reducing
-                                        manual entry errors by 30%.</li>
-                                    <li className="lg:text-lg">- Installed and customized user-specific applications like QuickBooks, ensuring smooth
-                                        operations for clients.</li>
-                                </ul>
-                            </details>
-
                         </div>
-                    </div>
-
-                </div>}
+                    }
+                </div>
             </div>
-
         </>
-
-    )
+    );
 }
 
-export default Workcard
+export default Workcard;

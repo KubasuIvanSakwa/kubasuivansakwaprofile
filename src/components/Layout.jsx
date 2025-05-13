@@ -28,7 +28,7 @@ function Layout() {
             <Leftnav tog={tog} />
             <Rightnav tog={tog} />
             <section // for chatgpt I want this section to have a min-h-fit so that it is dynamic but to also scroll, when I add the min-h-fit, it refuss to scroll
-                className={`backdrop-blur-sm lg:shadow-xl lg:w-[65vw] w-full min-h-screen overflow-y-auto p-1 overflow-x-hidden`}
+                className={`backdrop-blur-sm lg:shadow-xl lg:w-[65vw] w-full min-h-screen overflow-y-auto scroll-smooth p-1 overflow-x-hidden`}
             >
                 <div className={`${tog === "dark theme" ? "center-piece-dark" : "center-piece-light" } relative min-h-fit`}>
                     <Nav tog={tog} themeref={themeRef} fn={handleChange} />

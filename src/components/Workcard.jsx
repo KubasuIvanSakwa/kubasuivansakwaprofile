@@ -30,7 +30,7 @@ function Workcard({ duration, company, position, index }) {
             >
                 {/* Header */}
                 <div className="flex items-center gap-1 w-full h-[6rem]">
-                    <div className="w-[0.3rem] h-[90%] bg-[#1C1A1A] ml-1 border border-[#4B4B4B]/10"></div>
+                    <div className="w-[0.3rem] rounded-full h-[90%] bg-[#1C1A1A] ml-1 border border-[#4B4B4B]/10"></div>
                     <div className="w-full flex justify-between items-center p-2 h-[90%] bg-gradient-to-r from-[#1C1A1A] to-transparent">
                         <div>
                             <p className='ml-1 font-bold'>{company}</p>

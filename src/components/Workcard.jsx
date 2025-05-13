@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import arrow_down from '../assets/arrow_down.svg';
+import useInView from "../hooks/useInView"; 
 
-function Workcard({ duration, company, position }) {
+function Workcard({ duration, company, position, index }) {
     const [show, setShow] = useState(false);
     const contentRef = useRef(null);
+    const [ref, isVisible] = useInView();
 
     useEffect(() => {
         if (contentRef.current) {
@@ -17,7 +19,15 @@ function Workcard({ duration, company, position }) {
 
     return (
         <>
-            <div className="bg-[#141414] w-[90%] h-fit p-1 rounded-[0.8rem] border border-[#4B4B4B]">
+            <div
+                ref={ref}
+                style={{ transitionDelay: `${index * 100}ms` }}
+                className={`
+                    bg-[#141414] w-[90%] h-fit p-1 rounded-[0.8rem] border border-[#4B4B4B]
+                    transform transition-all duration-700 ease-out
+                    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+                `}
+            >
                 {/* Header */}
                 <div className="flex items-center gap-1 w-full h-[6rem]">
                     <div className="w-[0.3rem] h-[90%] bg-[#1C1A1A] ml-1 border border-[#4B4B4B]/10"></div>

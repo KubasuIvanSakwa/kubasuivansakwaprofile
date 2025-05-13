@@ -1,12 +1,6 @@
-import { useOutletContext } from "react-router-dom"
 import SkillCards from "./SkillCards"
-import { useState } from "react"
 
 function Skills() {
-
-    const [ tog ] = useOutletContext()
-    const [height, setHeight] = useState('28rem')
-    const [btn, setBtn] = useState('more')
 
     const skills = [
         { id: 0, name: 'JavaScript', logo: `bg-[url('/src/assets/logos/javascript.svg')]`, description: 'Language with many Frameworks' },
@@ -35,14 +29,22 @@ function Skills() {
                 className="h-[90px] lg:pl-[5rem] p-2"
             >
                 <ul className="flex flex-row w-full h-fit pb-3">
-                    {skills.map(skill => (
+                    {skills.map((skill, index) => (
                         <li key={skill.id} className="lg:w-[30%] w-full">
-                            <SkillCards logo={skill.logo}/>
+                            <SkillCards logo={skill.logo} index={index}/>
                         </li>
                     ))}
                 </ul>
             </section>
-             {/* <div className={`lg:hidden flex justify-center items-center ${height === '60rem' ? 'bg-transparent' : `bg-gradient-to-t ${tog === 'd' ? 'from-black via-black' : 'from-white via-white'} to-transparent`} w-full h-[12rem] absolute bottom-[-3rem]`}>
+
+        </section>
+    )
+}
+
+export default Skills
+
+
+            {/* <div className={`lg:hidden flex justify-center items-center ${height === '60rem' ? 'bg-transparent' : `bg-gradient-to-t ${tog === 'd' ? 'from-black via-black' : 'from-white via-white'} to-transparent`} w-full h-[12rem] absolute bottom-[-3rem]`}>
                 <button
                     onClick={() => {
                         if (btn === 'more') {
@@ -56,8 +58,3 @@ function Skills() {
                     className={`border-2 ${tog === 'd' ? 'border-white/30 text-white/80' : 'border-black/30 text-black/80'} p-1 flex justify-center items-center w-[6rem] h-[2rem] rounded-full`}
                 >{btn}</button>
             </div> */}
-        </section>
-    )
-}
-
-export default Skills

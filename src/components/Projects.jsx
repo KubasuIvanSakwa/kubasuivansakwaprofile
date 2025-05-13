@@ -20,52 +20,53 @@ function Projects() {
     const [sload, setSload] = useState(false)
     const [count, setCount] = useState([])
 
-    const searchNames = ['shop', 'codeshare', 'The-Wall-of-Projects-React-', 'antiflimflam', 'kubasuivansakwaprofile']
+    // const searchNames = ['shop', 'codeshare', 'The-Wall-of-Projects-React-', 'antiflimflam', 'kubasuivansakwaprofile']
     
 
-    const octokit = new Octokit()
+    // const octokit = new Octokit()
 
-    window.addEventListener('load', () => {
-        setWindowLoad(prev => !prev)
-    })
+    // window.addEventListener('load', () => {
+    //     setWindowLoad(prev => !prev)
+    // })
 
-    useEffect(() => {
-        let Fetch = async () => {
-            try {
-                const username = user.trim()
-                const repos = await octokit.request(`GET /users/${username}/repos`)
-                const orgs = await octokit.request(`GET /users/${username}/orgs`)
-                setRepoData(repos.data)
-                setError(undefined)
-                setFload(prevfload => !prevfload)
-            }
-            catch (ex) {
-                if (ex instanceof Error) setError(ex)
-                else console.error(ex)
-            }
-        }
+    // useEffect(() => {
+    //     let Fetch = async () => {
+    //         try {
+    //             const username = user.trim()
+    //             const repos = await octokit.request(`GET /users/${username}/repos`)
+    //             const orgs = await octokit.request(`GET /users/${username}/orgs`)
+    //             setRepoData(repos.data)
+    //             setError(undefined)
+    //             setFload(prevfload => !prevfload)
+    //         }
+    //         catch (ex) {
+    //             if (ex instanceof Error) setError(ex)
+    //             else console.error(ex)
+    //         }
+    //     }
 
-        Fetch()
-    }, [windowload])
+    //     Fetch()
+    // }, [windowload])
 
-    useEffect(() => {
-        const result = repoData.filter(repo => searchNames.includes(repo.name));
-        setFilteredRepos(result);
-        setFload((prevfload) => !prevfload); // Optional if needed for loading states
-    }, [repoData]);
+    // useEffect(() => {
+    //     const result = repoData.filter(repo => searchNames.includes(repo.name));
+    //     setFilteredRepos(result);
+    //     setFload((prevfload) => !prevfload); // Optional if needed for loading states
+    // }, [repoData]);
     
-    useEffect(() => {
-        if (filteredRepos.length > 0) {
-            const counts = {};
-            filteredRepos.forEach(repo => {
-                const language = repo.language || 'Unknown'; // Handle undefined language
-                counts[language] = (counts[language] || 0) + 1;
-            });
-            setCount(counts);
-            console.log("Counts updated:", counts);
-        }
-    }, [filteredRepos]);
+    // useEffect(() => {
+    //     if (filteredRepos.length > 0) {
+    //         const counts = {};
+    //         filteredRepos.forEach(repo => {
+    //             const language = repo.language || 'Unknown'; // Handle undefined language
+    //             counts[language] = (counts[language] || 0) + 1;
+    //         });
+    //         setCount(counts);
+    //         console.log("Counts updated:", counts);
+    //     }
+    // }, [filteredRepos]);
     
+    // console.log(repoData)
 
 
 
@@ -106,7 +107,7 @@ function Projects() {
                 <Link
                     to="jsx"
                     state = {{data: filteredRepos}}
-                    className="opacity-[.7] hover:opacity-[1] relative p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
+                    className="opacity-[.7] hover:opacity-[1] relative p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[16rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
                     {/* drop down for links */}
                     <div className="flex w-full justify-end p-1">
 
@@ -119,18 +120,15 @@ function Projects() {
                         </div>
 
                     </div>
-                    <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
-                        <p className="text-2xl pacifico-regular">{count.JavaScript || 0}</p>
-                    </div>
 
-                    <img src={reactlogo} alt="Logo" className="absolute w-[18rem] z-[60] bottom-[-6rem] opacity-[.8] left-[-5rem] bg-none" />
-                    <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem]">React Projects</p>
+                    <img src={reactlogo} alt="Logo" className="absolute w-[16rem] z-[60] bottom-[-6rem] opacity-[.8] left-[-5rem] bg-none" />
+                    <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem]">Web Pages</p>
                 </Link>
 
                 <Link
                     to="dart"
                     state = {{data: filteredRepos}}
-                    className="opacity-[.7] hover:opacity-[1]  relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
+                    className="opacity-[.7] hover:opacity-[1]  relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[16rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
                     {/* drop down for links */}
                     <div className="flex w-full justify-end p-1">
 
@@ -144,37 +142,9 @@ function Projects() {
                         </Link>
 
                     </div>
-                    <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
-                        <p className="text-2xl pacifico-regular">{count.Dart || 0}</p>
-                    </div>
 
-                    <img src={flutter} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none" />
-                    <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] z-[65] w-[2rem]">Flutter <span className="text-slate-300">P</span>rojects</p>
-                </Link>
-
-                <Link
-                    to="py"
-                    state = {{data: filteredRepos}}
-                    className="opacity-[.7] hover:opacity-[1] relative  p-1 lg:border-none border-2 border-white/20 overflow-hidden lg:w-[20rem] md:w-[20rem] w-full h-[20rem] rounded-[1.5rem] bg-black/80 bg-cover bg-center">
-                    {/* drop down for links */}
-                    <div className="flex w-full justify-end p-1">
-
-                        <Link
-                            to=""
-                            className="border-2 border-white/50 flex justify-around items-center p-1 rounded-full w-[2rem] h-[2rem] "
-                        >
-                            <p className="inline-block">
-                                <img src={eternal} alt="External link" className="w-[2rem]" />
-                            </p>
-                        </Link>
-
-                    </div>
-                    <div className="absolute top-[2rem] left-[1.5rem] border-2 border-white/40 w-[3rem] h-[3rem] flex justify-center items-center rounded-full">
-                        <p className="text-2xl pacifico-regular">{count.python || 0}</p>
-                    </div>
-
-                    <img src={python} alt="Logo" className="absolute z-[60] w-[18rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none" />
-                    <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] w-[2rem] z-[65]">Python Projects</p>
+                    <img src={flutter} alt="Logo" className="absolute z-[60] w-[16rem] bottom-[-4rem] opacity-[.8] left-[-5rem] bg-none" />
+                    <p className="absolute text-2xl pacifico-regular top-[5rem] right-[10rem] z-[65] w-[2rem]">Mobile Apps</p>
                 </Link>
 
             </div>

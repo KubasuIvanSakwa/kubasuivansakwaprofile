@@ -89,6 +89,44 @@ nav {
 }
 
 
+.hov span {
+    max-width: 0;
+    -webkit-transition: max-width 1s;
+    transition: max-width 1s;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.hov:hover span {
+    max-width: 7rem;
+}
+
+.gr::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(5deg, rgba(0, 0, 0, 0) 0, rgb(0, 0, 0) 600px, rgb(0, 0, 0));
+}
+
+
+@media (max-width: 780px) {
+    .gr::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: -webkit-linear-gradient(280deg, rgba(0, 0, 0, 0) 0, rgb(0, 0, 0) 500px, rgb(0, 0, 0));
+    }
+}
+
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
@@ -233,6 +271,42 @@ a{
     }
 }
 
+.center-piece-dark::before {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: url(src/assets/noisebg.svg);
+    opacity: .3;
+    z-index: -2;
+}
+
+.center-piece-dark::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: .6;
+    z-index: -1;
+}
+
+.center-piece-light::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    opacity: .6;
+    z-index: -1;
+}
+
 /* .card-1:before {
     content: '';
     position: absolute;
@@ -245,3 +319,27 @@ a{
     opacity: .7;
     z-index: -1;
 } */
+
+.btn-shine {
+    position: relative;
+    padding: 12px 48px;
+    color: #fff;
+    background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #014642 20%);
+    background-position: 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    font-weight: 900;
+    font-size: 16px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+} 
+
+
+
+

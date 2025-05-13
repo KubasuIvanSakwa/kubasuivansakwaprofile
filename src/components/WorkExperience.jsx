@@ -1,5 +1,7 @@
 import { useOutletContext } from "react-router-dom"
 import Workcard from "./Workcard"
+import rawlinz from "../assets/rawlinzpage.png"
+import kabras from "../assets/kabras.png"
 
 
 function WorkExperience() {
@@ -8,24 +10,37 @@ function WorkExperience() {
     const Experience = [
         {
             id: 0, 
-            company: 'Mutable Tech', 
-            duration: 'August 2023 - February - 2024', 
-            position: 'React Front-end Web Developer', 
-            background: 'bg-blue-900/20',
-            backgroundLight: 'bg-blue-900/70',
-            hoverDark: 'hover:bg-blue-900/50',
-            hoverLight: 'hover:bg-blue-900/80',
+            company: 'West Kenya Company(Kabras)', 
+            duration: 'Jan 2025 - Present · 3 mos', 
+            position: 'Information Technology Intern', 
+            background: 'bg-[#f1ee3c]/20',
+            backgroundLight: 'bg-[#f1ee3c]/70',
+            hoverDark: 'hover:bg-[#f1ee3c]/50',
+            hoverLight: 'hover:bg-[#f1ee3c]/80',
+            companyImage: `${kabras}`,
         },
 
         {
             id: 1, 
+            company: 'Nima College', 
+            duration: 'Sept 2024 – Dec 2024 · 4 mos', 
+            position: 'IT Tutor', 
+            background: 'bg-green-900/20',
+            backgroundLight: 'bg-green-900/70',
+            hoverDark: 'hover:bg-green-900/50',
+            hoverLight: 'hover:bg-green-900/80',
+            companyImage: `${rawlinz}`,
+        },
+        {
+            id: 2, 
             company: 'Rawlinz Designs Limited', 
-            duration: 'March 2024 - July - 2024', 
+            duration: 'March 2024 - July 2024 · 5 mos', 
             position: 'React Front-end Web Developer', 
             background: 'bg-green-900/20',
             backgroundLight: 'bg-green-900/70',
             hoverDark: 'hover:bg-green-900/50',
             hoverLight: 'hover:bg-green-900/80',
+            companyImage: `${rawlinz}`,
         }
     ]
 
@@ -35,9 +50,9 @@ function WorkExperience() {
         >
             <h1 className={`lg:text-xl p-2 lg:ml-10 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold  mb-3`}>work experience</h1>
 
-            <section className="flex flex-col gap-2 items-center">
+            <section className="flex flex-col gap-2 items-center pb-4">
                 {Experience.map(work => (
-                    <Workcard key={work.id} tog={tog} background={work.background} duration={work.duration} company={work.company} position={work.position} bgLight={work.backgroundLight} hoverdark={work.hoverDark} hoverlight={work.hoverLight}/>
+                    <Workcard key={work.id} tog={tog} background={work.background} duration={work.duration} company={work.company} position={work.position} bgLight={work.backgroundLight} hoverdark={work.hoverDark} hoverlight={work.hoverLight} companyImage={work.companyImage} />
                 ))}
             </section>
         </section>

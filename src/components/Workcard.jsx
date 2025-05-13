@@ -71,10 +71,10 @@ function Workcard({ duration, company, position, index }) {
 
                     
                     {company === 'Rawlinz Designs Limited' && 
-                        <div className="p-2 flex flex-col gap-2 text-white">
+                        <div className="p-2 flex flex-col gap-2 mb-5 text-white">
 
                             <p className="font-bold text-white/60">
-                                As a {position} I empowered organizations to achieve their online presence and performance goals...
+                                As a {position} I empowered organizations to achieve their online presence performance goals...
                             </p>
                             <h5 className="mt-[0.4rem] font-bold">Company Projects</h5>
                             <ul className="ml-[0.4rem] font-bold text-white/80">

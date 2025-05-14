@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useInView from "../hooks/useInView";
+import { Link } from "react-router-dom";
 
 function Projects() {
     const [ref1, isVisible1] = useInView();
@@ -9,13 +10,13 @@ function Projects() {
 
 
     const projectz = [
-        { id: 0, projName: 'The Wall of projects(react)', type: 'web' },
-        { id: 1, projName: 'Loncy', type: 'web' },
-        { id: 2, projName: 'ToDoList', type: 'web' },
-        { id: 3, projName: 'Portfolio', type: 'web' },
+        { id: 0, projName: 'The Wall of projects(react)', type: 'web', url: 'thewall' },
+        { id: 1, projName: 'Loncy', type: 'web', url: 'loncy' },
+        { id: 2, projName: 'ToDoList', type: 'web', url: 'todo' },
+        { id: 3, projName: 'Portfolio', type: 'web', url: 'portfolio' },
 
-        { id: 4, projName: 'Book-Review-App', type: 'mobile' },
-        { id: 5, projName: 'Greenthumb', type: 'mobile' },
+        { id: 4, projName: 'Book-Review-App', type: 'mobile', url: 'bookreview' },
+        { id: 5, projName: 'Greenthumb', type: 'mobile', url: 'thumb' },
     ]
 
     const Projitems = ({ project, hovered }) => (
@@ -66,7 +67,8 @@ function Projects() {
                     <div className="w-[95%] ml-3 h-full bg-gradient-to-r from-[#1C1A1A] via-transparent to-transparent rounded-[0.8rem]">
                         {projectz.map((item, index) => (
                             item.type === 'web' && (
-                                <div
+                                <Link
+                                    to={`${item.url}`}
                                     key={item.id}
                                     onMouseEnter={() => setHoveredId(item.id)}
                                     onMouseLeave={() => setHoveredId(null)}
@@ -75,7 +77,7 @@ function Projects() {
                                     style={{ transitionDelay: `${index * 100}ms` }}
                                 >
                                     <Projitems project={item.projName} hovered={hoveredId === item.id} />
-                                </div>
+                                </Link>
                             )
                         ))}
                     </div>
@@ -83,6 +85,7 @@ function Projects() {
 
                 {/* Card 2 */}
                 <div
+                    to=""
                     ref={ref2}
                     className={`w-[20rem] bg-[#141414] rounded-[1.2rem] h-[16rem] p-1 flex flex-col gap-1 items-center
                     transition-all duration-700 ease-out transform delay-300
@@ -100,7 +103,8 @@ function Projects() {
                     >
                         {projectz.map((item, index) => (
                             item.type === 'mobile' && (
-                                <div
+                                <Link
+                                    to={`${item.name}`}
                                     key={item.id}
                                     onMouseEnter={() => setHoveredId(item.id)}
                                     onMouseLeave={() => setHoveredId(null)}
@@ -109,7 +113,7 @@ function Projects() {
                                     style={{ transitionDelay: `${index * 100}ms` }}
                                 >
                                     <Projitems project={item.projName} hovered={hoveredId === item.id} />
-                                </div>
+                                </Link>
                             )
                         ))}
                     </div>

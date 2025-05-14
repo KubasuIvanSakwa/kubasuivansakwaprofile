@@ -1,63 +1,35 @@
-import { useLocation, useOutletContext, useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-
-import reactlogo from '/src/assets/react.svg'
-import flutter from '/src/assets/flutter.svg'
-import python from '/src/assets/python.svg'
-import Projcard from './Projcard'
+import { Link } from "react-router-dom"
+import github from "../assets/logos/github.svg"
+import preview from "../assets/preview.svg"
 
 function Projectpage() {
-    const { id } = useParams()
-    const location = useLocation()
-    const [lang, setLang] = useState()
-    const [filtered, setFiltered] = useState([
-        {
-            id: 0, name: 'js', 
-        }
-    ]) 
-    const urlstate = location.state?.data
-
-    const [tog] = useOutletContext()
-    
-    useEffect(() => {
-        // Set the language based on the path
-        if(location.pathname.includes('jsx')) {
-            setLang('Javascript')
-        } else if(location.pathname.includes('dart')) {
-            setLang('Dart')
-        } else if(location.pathname.includes('py')) {
-            setLang('Python')
-        }
-    }, [location.pathname])
-
-
-    // useEffect(() => {
-    //     if (urlstate && lang) {
-    //         const result = urlstate.filter(repo => repo.language && repo.language.toLowerCase() === lang.toLowerCase())
-    //         setFiltered(result)
-    //     }
-    // }, [urlstate, lang])
 
     return (
         <section className='p-2'>
-            <div className={`${tog === 'd' ? 'bg-black/80' : 'bg-white'} mt-[2.9rem] opacity-[.7] relative p-1 overflow-hidden w-full h-[10rem] bg-black/80`}>
-                {id === 'jsx' && <img src={reactlogo} alt="React Logo" className={`${tog === 'd' ? 'opacity-[.2]' : 'opacity-[.7]'} absolute w-[18rem] z-[60] bottom-[-6rem] left-[-5rem] bg-none`} />}
-                {id === 'dart' && <img src={flutter} alt="Flutter Logo" className={`${tog === 'd' ? 'opacity-[.2]' : 'opacity-[.7]'} absolute w-[18rem] z-[60] bottom-[-6rem] left-[-5rem] bg-none`} />}
-                {id === 'py' && <img src={python} alt="Python Logo" className={`${tog === 'd' ? 'opacity-[.2]' : 'opacity-[.7]'} absolute w-[18rem] z-[60] bottom-[-6rem] left-[-5rem] bg-none`}  />}
-            </div>
-            
-            {/* Render filtered repositories if available */}
-            <div className='flex flex-wrap gap-3 lg:flex-row flex-col'>
-                {
-                    urlstate && filtered.length > 0 ? (
-                    filtered.map((repo) => (
-                        <Projcard key={repo.id} title={repo.name} desc={repo.description} giturl={repo.html_url} exturl={''} /> // Ensure that each Projcard has a unique 'key' prop
-                    ))
-                ) : (
-                    <div className='text-white w-full flex justify-center items-center text-xl h-[10rem]'>
-                        Let Me Cook...
-                    </div> // Display message if no repositories are available
-                )}
+            <div className="w-full bg-[#141414] h-fit p-1 mt-[3rem] rounded-[1.5rem]">
+                <div className="flex items-center gap-1 w-full h-[4.5rem] mt-1 mr-1">
+                        <div className="w-[0.3rem] rounded-full h-[4rem] bg-[#1C1A1A] ml-1 border border-[#4B4B4B]/10"></div>
+                        <div className="w-full flex justify-between items-center p-2 h-[90%] bg-gradient-to-r from-[#1C1A1A] to-transparent">
+                            <p className="ml-1 font-bold">Mobile Apps</p>
+                            <div className="flex items-center gap-2">
+                                <Link to={{
+                                    pathname: ''
+                                }} target="_blank">
+                                    <img src={github} className="w-[2rem] opacity-50 hover:opacity-80"/>
+                                </Link>
+
+                                <Link to={{
+                                    pathname: ''
+                                }} target="_blank">
+                                    <img src={preview} className="w-[2rem] opacity-50 hover:opacity-80"/>
+                                </Link>
+                            </div>
+                        </div>
+                </div>
+
+                <div className="w-[97%] ml-3 h-[10rem] bg-gradient-to-b from-[#1C1A1A] via-transparent to-transparent rounded-[0.8rem]">
+
+                </div>
             </div>
         </section>
     )

@@ -104,7 +104,7 @@ function Projects() {
                         {projectz.map((item, index) => (
                             item.type === 'mobile' && (
                                 <Link
-                                    to={`${item.name}`}
+                                    to={`${item.url}`}
                                     key={item.id}
                                     onMouseEnter={() => setHoveredId(item.id)}
                                     onMouseLeave={() => setHoveredId(null)}

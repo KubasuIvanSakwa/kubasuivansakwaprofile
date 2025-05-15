@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 // import UseRelaod from "../hooks/UseRelaod"; //self hook
 import Leftnav from "./Leftnav";
@@ -25,6 +26,11 @@ function Layout() {
                 } ease-in w-full flex justify-center h-[100vh] overflow-hidden`}
             ref={theme}
         >
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>My Title</title>
+                <link rel="canonical" href="https://kubasuivansakwa.vercel.app/" />
+            </Helmet>
             <Leftnav tog={tog} />
             <Rightnav tog={tog} />
             <section // for chatgpt I want this section to have a min-h-fit so that it is dynamic but to also scroll, when I add the min-h-fit, it refuss to scroll

@@ -1,6 +1,6 @@
-import { Link, useOutletContext } from "react-router-dom"
+import { useOutletContext } from "react-router-dom"
 import Introcard from "./Introcard"
-import Line from "./Line"
+// import Line from "./Line"
 
 function Hero() {
     const [ tog ] = useOutletContext()

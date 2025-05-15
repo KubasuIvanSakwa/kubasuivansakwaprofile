@@ -31,7 +31,7 @@ function WorkExperience() {
         <section
             className="text-white w-full min-h-fit mt-10 pb-[4.5rem] "
         >
-            <h1 className={`lg:text-xl p-2 lg:ml-10 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold  mb-3`}>work experience</h1>
+            <h3 className={`lg:text-xl p-2 lg:ml-10 text-lg ${tog === 'd' ? 'text-white/60' : 'text-red-900/70'} font-extrabold  mb-3`}>work experience</h3>
 
             <section className="flex flex-col gap-2 items-center pb-4">
                 {Experience.map((work, index) => (

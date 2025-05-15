@@ -12,7 +12,7 @@ function Introcard({ tog }) {
                 </div>
                 <div className="ml-3 flex-col h-[4rem] w-[10rem] top-[0.1rem] relative pacifico-regular">
                     <p className={`${tog === 'l' ? 'text-[#252525]' : 'text-[#dad5d5]'} text-[0.875rem] leading-3 `}>Software engineer</p>
-                    <p className="leading-6 text-[2rem] text-[#a5a5a5] relative z-10">Kubasu</p>
+                    <h1 className="leading-6 text-[2rem] text-[#a5a5a5] relative z-10">Kubasu</h1>
                     <p className="leading-6 text-[2rem] text-[#b36464] relative z-30">Ivan</p>
                     <p className="leading-6 text-[2rem] text-[#a5a5a5] relative z-40">Sakwa</p>
                 </div>

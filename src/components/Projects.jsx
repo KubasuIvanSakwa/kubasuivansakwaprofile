@@ -79,7 +79,7 @@ function Projects() {
     return (
         <section className="text-white pt-[5rem] w-full relative overflow-y-auto min-h-fit h-[100vh]">
             <div className="w-full flex items-center justify-center">
-                <h1 className={`text-xl p-2  'text-white/70'  font-extrabold mb-3`}>Productivity Chart</h1>
+                <h3 className={`text-xl p-2  'text-white/70'  font-extrabold mb-3`}>Productivity Chart</h3>
             </div>
             <div ref={chartRef} className={`h-fit flex flex-col items-center p-2 transition-all duration-700 ease-out
                         ${isChartVisible ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}>

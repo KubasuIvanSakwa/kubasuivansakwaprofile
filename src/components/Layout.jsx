@@ -28,7 +28,7 @@ function Layout() {
         >
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>My Title</title>
+                <title>Kubasu Ivan Sakwa | Software Engineer & Web Developer</title>
                 <link rel="canonical" href="https://kubasuivansakwa.vercel.app/" />
             </Helmet>
             <Leftnav tog={tog} />

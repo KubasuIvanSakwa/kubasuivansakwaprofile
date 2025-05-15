@@ -1,7 +1,7 @@
-import { Link, useParams } from "react-router-dom"
 import github from "../assets/logos/github.svg"
 import preview from "../assets/preview.svg"
 import projects from "../../public/assets/projects.js"
+import { useParams } from "react-router-dom"
 
 function Projectpage() {
     console.log(projects)

@@ -11,7 +11,7 @@ function Projcard({ title, desc, giturl, exturl }) {
 
     return (
         <section className="mt-5 relative w-full min-h-fit p-2">
-            <h1 className='text-white text-xl text-center mb-3'>Personal Landing Page</h1>
+            {/* <h1 className='text-white text-xl text-center mb-3'>Personal Landing Page</h1> */}
             {/* image filler */}
             <div className="border border-white/20 rounded-t-sm flex lg:flex-row md:flex-row relative flex-col w-full h-[30rem]">
                 <div className='relative bg-[url("/src/assets/homepage.png")] bg-cover bg-no-repeat lg:h-[30rem] md:h-[30rem] lg:w-[50rem] md:w-[50rem] w-full h-full'>

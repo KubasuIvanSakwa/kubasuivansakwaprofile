@@ -1,5 +1,7 @@
 import { useState } from "react";
 import useInView from "../hooks/useInView";
+import { Link } from "react-router-dom";
+import projects from "../../public/assets/projects.js"
 
 function Projects() {
     const [ref1, isVisible1] = useInView();
@@ -7,16 +9,61 @@ function Projects() {
     const [hoveredId, setHoveredId] = useState(null);
     const [chartRef, isChartVisible] = useInView();
 
+    console.log(projects)
+
+
 
     const projectz = [
-        { id: 0, projName: 'The Wall of projects(react)', type: 'web' },
-        { id: 1, projName: 'Loncy', type: 'web' },
-        { id: 2, projName: 'ToDoList', type: 'web' },
-        { id: 3, projName: 'Portfolio', type: 'web' },
+        {
+            id: 0,
+            projName: 'The Wall of projects(react)',
+            type: 'web',
+            url: 'thewall',
+            codelink: "https://github.com/KubasuIvanSakwa/The-Wall-of-Projects-React-",
+            livelink: "https://the-wall-of-projects-react.netlify.app/",
+        },
+        {
+            id: 1,
+            projName: 'Loncy',
+            type: 'web',
+            url: 'loncy',
+            livelink: "https://loncy-at7ouorxa-kubasu-ivan-sakwas-projects.vercel.app/",
+            codelink: ''
+        },
+        {
+            id: 2,
+            projName: 'ToDoList',
+            type: 'web',
+            url: 'todo',
+            codelink: "https://github.com/KubasuIvanSakwa/ToDoList",
+            livelink: "https://kubasuivansakwa.github.io/ToDoList/",
+        },
+        {
+            id: 3,
+            projName: 'Portfolio',
+            type: 'web',
+            url: 'portfolio',
+            codelink: "https://github.com/KubasuIvanSakwa/kubasuivansakwaprofile",
+            livelink: "https://kubasuivansakwa.vercel.app/",
+        },
 
-        { id: 4, projName: 'Book-Review-App', type: 'mobile' },
-        { id: 5, projName: 'Greenthumb', type: 'mobile' },
+        {
+            id: 4,
+            projName: 'Book-Review-App',
+            type: 'mobile',
+            url: 'bookreview',
+            codelink: 'https://github.com/KubasuIvanSakwa/Book-review-app'
+        },
+        {
+            id: 5,
+            projName: 'Greenthumb',
+            type: 'mobile',
+            url: 'thumb',
+            codelink: 'https://github.com/KubasuIvanSakwa/greenthumb'
+        },
     ]
+
+
 
     const Projitems = ({ project, hovered }) => (
         <div className="flex justify-between items-center mt-2">
@@ -32,7 +79,7 @@ function Projects() {
     return (
         <section className="text-white pt-[5rem] w-full relative overflow-y-auto min-h-fit h-[100vh]">
             <div className="w-full flex items-center justify-center">
-                <h1 className={`text-xl p-2  'text-white/70'  font-extrabold mb-3`}>Productivity Chart</h1>
+                <h3 className={`text-xl p-2  'text-white/70'  font-extrabold mb-3`}>Productivity Chart</h3>
             </div>
             <div ref={chartRef} className={`h-fit flex flex-col items-center p-2 transition-all duration-700 ease-out
                         ${isChartVisible ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}>
@@ -66,7 +113,9 @@ function Projects() {
                     <div className="w-[95%] ml-3 h-full bg-gradient-to-r from-[#1C1A1A] via-transparent to-transparent rounded-[0.8rem]">
                         {projectz.map((item, index) => (
                             item.type === 'web' && (
-                                <div
+                                <a
+                                    href={`${item.livelink ? item.livelink : item.codelink}`}
+                                    target="_blank"
                                     key={item.id}
                                     onMouseEnter={() => setHoveredId(item.id)}
                                     onMouseLeave={() => setHoveredId(null)}
@@ -75,7 +124,7 @@ function Projects() {
                                     style={{ transitionDelay: `${index * 100}ms` }}
                                 >
                                     <Projitems project={item.projName} hovered={hoveredId === item.id} />
-                                </div>
+                                </a>
                             )
                         ))}
                     </div>
@@ -83,6 +132,7 @@ function Projects() {
 
                 {/* Card 2 */}
                 <div
+                    to=""
                     ref={ref2}
                     className={`w-[20rem] bg-[#141414] rounded-[1.2rem] h-[16rem] p-1 flex flex-col gap-1 items-center
                     transition-all duration-700 ease-out transform delay-300
@@ -100,7 +150,9 @@ function Projects() {
                     >
                         {projectz.map((item, index) => (
                             item.type === 'mobile' && (
-                                <div
+                                <a
+                                    href={`${item.livelink ? item.livelink : item.codelink}`}
+                                    target="_blank"
                                     key={item.id}
                                     onMouseEnter={() => setHoveredId(item.id)}
                                     onMouseLeave={() => setHoveredId(null)}
@@ -109,7 +161,7 @@ function Projects() {
                                     style={{ transitionDelay: `${index * 100}ms` }}
                                 >
                                     <Projitems project={item.projName} hovered={hoveredId === item.id} />
-                                </div>
+                                </a>
                             )
                         ))}
                     </div>

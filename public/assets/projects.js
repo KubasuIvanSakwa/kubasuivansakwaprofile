@@ -78,7 +78,7 @@ const projects = [
         },
         usedTech: "React, tailwind",
         codeLink: "",
-        liveLink: "https://loncy-at7ouorxa-kubasu-ivan-sakwas-projects.vercel.app/",
+        liveLink: "https://loncyenv.vercel.app/",
         type: "web",
     }, {
         name: "To DoList",

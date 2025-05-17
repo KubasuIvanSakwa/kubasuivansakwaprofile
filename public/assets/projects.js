@@ -58,7 +58,7 @@ const projects = [
         },
         usedTech: "React, tailwind",
         codeLink: "https://github.com/KubasuIvanSakwa/The-Wall-of-Projects-React-",
-        liveLink: "https://the-wall-of-projects-react.netlify.app/",
+        liveLink: "",
         type: "web",
     }, {
         name: "Loncy",

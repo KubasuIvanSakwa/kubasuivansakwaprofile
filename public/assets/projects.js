@@ -58,7 +58,7 @@ const projects = [
         },
         usedTech: "React, tailwind",
         codeLink: "https://github.com/KubasuIvanSakwa/The-Wall-of-Projects-React-",
-        liveLink: "https://the-wall-of-projects-react.netlify.app/",
+        liveLink: "",
         type: "web",
     }, {
         name: "Loncy",
@@ -78,7 +78,7 @@ const projects = [
         },
         usedTech: "React, tailwind",
         codeLink: "",
-        liveLink: "https://loncy-at7ouorxa-kubasu-ivan-sakwas-projects.vercel.app/",
+        liveLink: "https://loncyenv.vercel.app/",
         type: "web",
     }, {
         name: "To DoList",

@@ -20,14 +20,14 @@ function Projects() {
             type: 'web',
             url: 'thewall',
             codelink: "https://github.com/KubasuIvanSakwa/The-Wall-of-Projects-React-",
-            livelink: "https://the-wall-of-projects-react.netlify.app/",
+            livelink: "",
         },
         {
             id: 1,
             projName: 'Loncy',
             type: 'web',
             url: 'loncy',
-            livelink: "https://loncy-at7ouorxa-kubasu-ivan-sakwas-projects.vercel.app/",
+            livelink: "https://loncyenv.vercel.app/",
             codelink: ''
         },
         {

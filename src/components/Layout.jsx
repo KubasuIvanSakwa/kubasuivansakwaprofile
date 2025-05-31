@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 // import UseRelaod from "../hooks/UseRelaod"; //self hook
 import Leftnav from "./Leftnav";
@@ -28,6 +28,8 @@ function Layout() {
         >
             <Helmet>
                 <meta charSet="utf-8" />
+                <meta property="og:site_name" content="Kubasu Ivan Sakwa | Software Engineer & Web Developer" />
+                <meta property="og:title" content="Kubasu Ivan Sakwa| Software Engineer & Web Developer" />
                 <title>Kubasu Ivan Sakwa | Software Engineer & Web Developer</title>
                 <link rel="canonical" href="https://kubasuivansakwa.vercel.app/" />
             </Helmet>
@@ -36,7 +38,7 @@ function Layout() {
             <section // for chatgpt I want this section to have a min-h-fit so that it is dynamic but to also scroll, when I add the min-h-fit, it refuss to scroll
                 className={`backdrop-blur-sm lg:shadow-xl lg:w-[65vw] w-full min-h-screen overflow-y-auto scroll-smooth p-1 overflow-x-hidden`}
             >
-                <div className={`${tog === "dark theme" ? "center-piece-dark" : "center-piece-light" } relative min-h-fit`}>
+                <div className={`${tog === "dark theme" ? "center-piece-dark" : "center-piece-light"} relative min-h-fit`}>
                     <Nav tog={tog} themeref={themeRef} fn={handleChange} />
                     <Outlet context={tog} />
                 </div>
@@ -48,17 +50,17 @@ function Layout() {
 export default Layout;
 
 
-    // useEffect(() => {
-    //     if (tog === "dark theme") {
-    //         themeRef.current.checked = true;
-    //     } else if (tog === "light theme") {
-    //         themeRef.current.checked = false;
-    //     }
+// useEffect(() => {
+//     if (tog === "dark theme") {
+//         themeRef.current.checked = true;
+//     } else if (tog === "light theme") {
+//         themeRef.current.checked = false;
+//     }
 
-    //     window
-    //         .matchMedia("(prefers-color-scheme: dark)")
-    //         .addEventListener("change", function (e) {
-    //             const newColorScheme = e.matches ? "dark" : "light";
-    //             setTog(newColorScheme === "dark" ? "dark theme" : "light theme");
-    //         });
-    // }, [tog]);
+//     window
+//         .matchMedia("(prefers-color-scheme: dark)")
+//         .addEventListener("change", function (e) {
+//             const newColorScheme = e.matches ? "dark" : "light";
+//             setTog(newColorScheme === "dark" ? "dark theme" : "light theme");
+//         });
+// }, [tog]);

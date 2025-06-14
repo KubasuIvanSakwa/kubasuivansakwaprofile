@@ -2,6 +2,7 @@ import { useState } from "react";
 import useInView from "../hooks/useInView";
 import { Link } from "react-router-dom";
 import projects from "../../public/assets/projects.js"
+import { Helmet } from "react-helmet";
 
 function Projects() {
     const [ref1, isVisible1] = useInView();
@@ -78,6 +79,12 @@ function Projects() {
 
     return (
         <section className="text-white pt-[5rem] w-full relative overflow-y-auto min-h-fit h-[100vh]">
+            <Helmet>
+                <title>Projects – Kubasu Ivan Sakwa</title>
+                <meta name="description" content="Explore personal and freelance software projects by Kubasu Ivan Sakwa. Built with React, Flutter, and JavaScript." />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://kubasuivansakwa.vercel.app/projects" />
+            </Helmet>
             <div className="w-full flex items-center justify-center">
                 <h3 className={`text-xl p-2  'text-white/70'  font-extrabold mb-3`}>Productivity Chart</h3>
             </div>

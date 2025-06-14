@@ -70,7 +70,7 @@ function Workcard({ duration, company, position, index }) {
                     }
 
                     
-                    {company === 'Rawlinz Designs Limited' && 
+                    {company === 'Rawlinz Designs Limited' && position === 'Front-end Web Developer' &&
                         <div className="p-2 flex flex-col gap-2 mb-5 text-white">
 
                             <p className="font-bold text-white/60">
@@ -86,6 +86,23 @@ function Workcard({ duration, company, position, index }) {
                                 <li className="lg:text-lg">
                                     <p>
                                         - Worked on <a href="https://kifaruproperties.com/" className="underline" target="_blank" rel="noreferrer">Kifaru Properties</a>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+
+                    {company === 'Rawlinz Designs Limited' && position === 'Software Developer' &&
+                        <div className="p-2 flex flex-col gap-2 mb-5 text-white">
+
+                            {/* <p className="font-bold text-white/60">
+                                As a {position} I company Saas products
+                            </p> */}
+                            <h5 className="mt-[0.4rem] font-bold">Company Projects</h5>
+                            <ul className="ml-[0.4rem] font-bold text-white/80">
+                                <li className="lg:text-lg">
+                                    <p>
+                                        - Collaborate in creating company SaaS products, and maintaining them
                                     </p>
                                 </li>
                             </ul>

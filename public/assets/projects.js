@@ -118,7 +118,7 @@ const projects = [
         },
         usedTech: "React, Tailwind",
         codeLink: "https://github.com/KubasuIvanSakwa/kubasuivansakwaprofile",
-        liveLink: "https://kubasuivansakwa.vercel.app/",
+        liveLink: "https://www.kubasuivansakwa.space/",
         type: "web",
     },
 ]

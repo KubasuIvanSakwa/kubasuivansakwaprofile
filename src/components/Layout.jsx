@@ -31,7 +31,7 @@ function Layout() {
                 <meta property="og:site_name" content="Kubasu Ivan Sakwa • Software Engineer" />
                 <meta property="og:title" content="Kubasu Ivan Sakwa • Software Engineer" />
                 <title>Kubasu Ivan Sakwa | Software Engineer </title>
-                <link rel="canonical" href="https://kubasuivansakwa.vercel.app/" />
+                <link rel="canonical" href="https://www.kubasuivansakwa.space/" />
             </Helmet>
             <Leftnav tog={tog} />
             <Rightnav tog={tog} />

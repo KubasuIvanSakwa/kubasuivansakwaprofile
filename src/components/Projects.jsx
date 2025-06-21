@@ -45,7 +45,7 @@ function Projects() {
             type: 'web',
             url: 'portfolio',
             codelink: "https://github.com/KubasuIvanSakwa/kubasuivansakwaprofile",
-            livelink: "https://kubasuivansakwa.vercel.app/",
+            livelink: "https://www.kubasuivansakwa.space/",
         },
 
         {
@@ -83,7 +83,7 @@ function Projects() {
                 <title>Projects – Kubasu Ivan Sakwa</title>
                 <meta name="description" content="Explore personal and freelance software projects by Kubasu Ivan Sakwa. Built with React, Flutter, and JavaScript." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://kubasuivansakwa.vercel.app/projects" />
+                <link rel="canonical" href="https://www.kubasuivansakwa.space/projects" />
             </Helmet>
             <div className="w-full flex items-center justify-center">
                 <h3 className={`text-xl p-2  'text-white/70'  font-extrabold mb-3`}>Productivity Chart</h3>
